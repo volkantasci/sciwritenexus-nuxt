@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  sciwritenexus:
+    build: .
+    image: sciwritenexus-hopepage:v1
+    environment:
+      - NODE_ENV=production
+      - BASE_URL=https://sciwritenexus.com
+    restart: always
