@@ -12,7 +12,7 @@
         <div class="disclaimer-sections">
           <section class="disclaimer-section">
             <h2>1. Hizmetlerimizin Doğası</h2>
-            <p>RWNexus olarak sunduğumuz akademik danışmanlık hizmetleri, akademik çalışmalarınızın geliştirilmesi, iyileştirilmesi ve akademik standartlara uygun hale getirilmesi amacıyla tasarlanmıştır. Hizmetlerimiz:</p>
+            <p>SciWriteNexus olarak sunduğumuz akademik danışmanlık hizmetleri, akademik çalışmalarınızın geliştirilmesi, iyileştirilmesi ve akademik standartlara uygun hale getirilmesi amacıyla tasarlanmıştır. Hizmetlerimiz:</p>
             <ul>
               <li>Akademik yazım becerilerinizi geliştirmeyi</li>
               <li>Mevcut çalışmalarınızın kalitesini artırmayı</li>
@@ -24,7 +24,7 @@
 
           <section class="disclaimer-section">
             <h2>2. Akademik Dürüstlük İlkeleri</h2>
-            <p>RWNexus olarak akademik dürüstlüğe ve etik değerlere büyük önem veriyoruz:</p>
+            <p>SciWriteNexus olarak akademik dürüstlüğe ve etik değerlere büyük önem veriyoruz:</p>
             <ul>
               <li>Tüm çalışmalar orijinal olmalı ve intihal içermemelidir</li>
               <li>Referanslar uygun şekilde belirtilmelidir</li>
@@ -36,7 +36,7 @@
           <section class="disclaimer-section">
             <h2>3. Sorumluluk Sınırlamaları</h2>
             <h3>3.1 Akademik Başarı Garantisi</h3>
-            <p>RWNexus, hizmetlerimizin kullanımı sonucunda elde edilecek akademik başarılar için herhangi bir garanti vermez. Başarı, bireysel çaba, yetenek ve diğer faktörlere bağlıdır.</p>
+            <p>SciWriteNexus, hizmetlerimizin kullanımı sonucunda elde edilecek akademik başarılar için herhangi bir garanti vermez. Başarı, bireysel çaba, yetenek ve diğer faktörlere bağlıdır.</p>
 
             <h3>3.2 Yayın Kabulü</h3>
             <p>Dergi yayın kabulü veya tez onayı gibi sonuçlar için garanti vermiyoruz. Bu kararlar tamamen ilgili akademik kurumların inisiyatifindedir.</p>
@@ -59,7 +59,7 @@
 
           <section class="disclaimer-section">
             <h2>5. Fikri Mülkiyet Hakları</h2>
-            <p>Müşteriler tarafından sağlanan tüm içeriklerin fikri mülkiyet hakları müşteriye aittir. RWNexus:</p>
+            <p>Müşteriler tarafından sağlanan tüm içeriklerin fikri mülkiyet hakları müşteriye aittir. SciWriteNexus:</p>
             <ul>
               <li>Müşteri çalışmalarının gizliliğini korur</li>
               <li>İçerikleri üçüncü şahıslarla paylaşmaz</li>
@@ -70,7 +70,7 @@
 
           <section class="disclaimer-section">
             <h2>6. Hizmet Kapsamı Dışındaki Alanlar</h2>
-            <p>RWNexus aşağıdaki hizmetleri sağlamaz:</p>
+            <p>SciWriteNexus aşağıdaki hizmetleri sağlamaz:</p>
             <ul>
               <li>Akademik sınavlara hazırlık veya sınav soruları</li>
               <li>Ödev veya projelerin tamamlanması</li>
@@ -95,16 +95,15 @@
             <h2>8. İletişim ve Destek</h2>
             <p>Hizmetlerimizle ilgili sorularınız için:</p>
             <div class="contact-info">
-              <p><strong>RWNexus Akademik Danışmanlık</strong></p>
-              <p>E-posta: info@rwnexus.com</p>
-              <p>Telefon: +90 542 272 31 31</p>
+              <p><strong>SciWriteNexus Akademik Danışmanlık</strong></p>
+              <p>E-posta: info@sciwritenexus.com</p>
               <p>Çalışma Saatleri: Pazartesi-Cuma 09:00-18:00</p>
             </div>
           </section>
 
           <section class="disclaimer-section">
             <h2>9. Yasal Uyarı</h2>
-            <p>Bu sorumluluk reddi, RWNexus'un yasal yükümlülüklerini sınırlamaz. Müşteriler, hizmet koşullarını kabul ederek bu politikayı onaylamış sayılır.</p>
+            <p>Bu sorumluluk reddi, SciWriteNexus'un yasal yükümlülüklerini sınırlamaz. Müşteriler, hizmet koşullarını kabul ederek bu politikayı onaylamış sayılır.</p>
           </section>
         </div>
       </div>

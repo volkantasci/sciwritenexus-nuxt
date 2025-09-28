@@ -12,14 +12,14 @@
         <div class="policy-sections">
           <section class="policy-section">
             <h2>1. Introduction</h2>
-            <p>RWNexus ("we", "our", or "the company") takes the privacy of our customers and website visitors seriously. This Data Protection Policy explains how RWNexus collects, uses, shares, and protects personal data.</p>
+            <p>SciWriteNexus ("we", "our", or "the company") takes the privacy of our customers and website visitors seriously. This Data Protection Policy explains how SciWriteNexus collects, uses, shares, and protects personal data.</p>
           </section>
 
           <section class="policy-section">
             <h2>2. Types of Data Collected</h2>
             <h3>2.1 Information Provided Directly</h3>
             <ul>
-              <li>Through contact forms: Name, surname, email address, phone number</li>
+              <li>Through contact forms: Name, surname, email address</li>
               <li>Free evaluation forms: Academic background, project details, file uploads</li>
               <li>Contact information: Email subscriptions, questions and requests</li>
             </ul>
@@ -112,9 +112,8 @@
             <h2>12. Contact</h2>
             <p>For questions regarding our data protection policy:</p>
             <div class="contact-info">
-              <p><strong>RWNexus</strong></p>
-              <p>Email: info@rwnexus.com</p>
-              <p>Phone: +90 542 272 31 31</p>
+              <p><strong>SciWriteNexus</strong></p>
+              <p>Email: info@sciwritenexus.com</p>
             </div>
           </section>
         </div>

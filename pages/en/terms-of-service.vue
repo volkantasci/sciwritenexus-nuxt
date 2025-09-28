@@ -12,42 +12,42 @@
         <div class="terms-body">
           <section class="terms-section">
             <h2>1. Acceptance of Terms</h2>
-            <p>These Terms of Service ("Terms", "Agreement") constitute a legally binding agreement between you ("User", "you", "your") and RWNexus ("Platform", "we", "us", "our"), governing your access to and use of the http://rwnexus.com/ website and all associated services, features, and content.</p>
+            <p>These Terms of Service ("Terms", "Agreement") constitute a legally binding agreement between you ("User", "you", "your") and SciWriteNexus ("Platform", "we", "us", "our"), governing your access to and use of the http://sciwritenexus.com/ website and all associated services, features, and content.</p>
           </section>
 
           <section class="terms-section">
             <h2>2. Platform Description and Eligibility</h2>
-            <p>RWNexus is a specialized academic support platform designed to assist researchers, scholars, and scientific professionals in enhancing their written communications. Our services encompass manuscript editing, statistical analysis support, academic English instruction, and related educational resources tailored to the needs of the global research community.</p>
+            <p>SciWriteNexus is a specialized academic support platform designed to assist researchers, scholars, and scientific professionals in enhancing their written communications. Our services encompass manuscript editing, statistical analysis support, academic English instruction, and related educational resources tailored to the needs of the global research community.</p>
           </section>
 
           <section class="terms-section">
             <h2>3. Intellectual Property Rights</h2>
-            <p>All content available on RWNexus, including but not limited to text, graphics, logos, images, audio clips, video materials, data compilations, software, and the compilation of all content on the Platform, is the exclusive property of RWNexus or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws.</p>
+            <p>All content available on SciWriteNexus, including but not limited to text, graphics, logos, images, audio clips, video materials, data compilations, software, and the compilation of all content on the Platform, is the exclusive property of SciWriteNexus or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws.</p>
           </section>
 
           <section class="terms-section">
             <h2>4. User-Generated Content and Submissions</h2>
-            <p>When you submit content to RWNexus, including but not limited to research manuscripts, data sets, comments, feedback, or any other materials ("User Content"), you retain ownership of your intellectual property rights in such content.</p>
+            <p>When you submit content to SciWriteNexus, including but not limited to research manuscripts, data sets, comments, feedback, or any other materials ("User Content"), you retain ownership of your intellectual property rights in such content.</p>
           </section>
 
           <section class="terms-section">
             <h2>5. Prohibited Uses and Conduct</h2>
-            <p>You agree not to engage in any of the following prohibited activities in connection with your use of RWNexus: Violating any applicable laws, regulations, or third-party rights; using the Platform for any unlawful, harmful, fraudulent, or malicious purpose; attempting to interfere with, compromise the system integrity or security of, or decipher any transmissions to or from the servers running the Platform.</p>
+            <p>You agree not to engage in any of the following prohibited activities in connection with your use of SciWriteNexus: Violating any applicable laws, regulations, or third-party rights; using the Platform for any unlawful, harmful, fraudulent, or malicious purpose; attempting to interfere with, compromise the system integrity or security of, or decipher any transmissions to or from the servers running the Platform.</p>
           </section>
 
           <section class="terms-section">
             <h2>6. Payment Terms and Refund Policy</h2>
-            <p>Certain services offered through RWNexus require payment. By purchasing our services, you agree to pay all applicable fees as described on the Platform at the time of purchase. All prices are in U.S. dollars unless otherwise specified.</p>
+            <p>Certain services offered through SciWriteNexus require payment. By purchasing our services, you agree to pay all applicable fees as described on the Platform at the time of purchase. All prices are in U.S. dollars unless otherwise specified.</p>
           </section>
 
           <section class="terms-section">
             <h2>7. Disclaimers and Limitation of Liability</h2>
-            <p>RWNexus provides all services and content on an "as is" and "as available" basis without warranties of any kind, either express or implied. We specifically disclaim all warranties, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, and any warranties arising from course of dealing or usage of trade.</p>
+            <p>SciWriteNexus provides all services and content on an "as is" and "as available" basis without warranties of any kind, either express or implied. We specifically disclaim all warranties, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, and any warranties arising from course of dealing or usage of trade.</p>
           </section>
 
           <section class="terms-section">
             <h2>8. Indemnification</h2>
-            <p>You agree to defend, indemnify, and hold harmless RWNexus, its affiliates, and their respective officers, directors, employees, agents, licensors, and suppliers from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees arising out of or relating to your violation of these Terms.</p>
+            <p>You agree to defend, indemnify, and hold harmless SciWriteNexus, its affiliates, and their respective officers, directors, employees, agents, licensors, and suppliers from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees arising out of or relating to your violation of these Terms.</p>
           </section>
 
           <section class="terms-section">
@@ -57,12 +57,12 @@
 
           <section class="terms-section">
             <h2>10. Privacy and Data Protection</h2>
-            <p>Your use of RWNexus is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By using the Platform, you consent to our collection, use, and disclosure of information as described in the Privacy Policy.</p>
+            <p>Your use of SciWriteNexus is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By using the Platform, you consent to our collection, use, and disclosure of information as described in the Privacy Policy.</p>
           </section>
 
           <section class="terms-section">
             <h2>11. Third-Party Links and Services</h2>
-            <p>The Platform may contain links to third-party websites, services, or resources that are not owned or controlled by RWNexus. We provide these links for your convenience, but we do not endorse and are not responsible for the content, products, or services offered by third parties.</p>
+            <p>The Platform may contain links to third-party websites, services, or resources that are not owned or controlled by SciWriteNexus. We provide these links for your convenience, but we do not endorse and are not responsible for the content, products, or services offered by third parties.</p>
           </section>
 
           <section class="terms-section">
@@ -72,16 +72,16 @@
 
           <section class="terms-section">
             <h2>13. General Provisions</h2>
-            <p>These Terms constitute the entire agreement between you and RWNexus regarding your use of the Platform and supersede all prior agreements and understandings. If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+            <p>These Terms constitute the entire agreement between you and SciWriteNexus regarding your use of the Platform and supersede all prior agreements and understandings. If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
           </section>
 
           <section class="terms-section">
             <h2>14. Contact Information</h2>
             <p>If you have any questions, concerns, or comments about these Terms of Service, please contact us at:</p>
-            <p><strong>RWNexus</strong></p>
-            <p><strong>Email:</strong> support@rwnexus.com</p>
-            <p><strong>Legal Inquiries:</strong> legal@rwnexus.com</p>
-            <p><strong>Website:</strong> http://rwnexus.com/</p>
+            <p><strong>SciWriteNexus</strong></p>
+            <p><strong>Email:</strong> support@sciwritenexus.com</p>
+            <p><strong>Legal Inquiries:</strong> legal@sciwritenexus.com</p>
+            <p><strong>Website:</strong> http://sciwritenexus.com/</p>
           </section>
         </div>
       </div>

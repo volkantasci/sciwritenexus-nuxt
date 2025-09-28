@@ -12,17 +12,17 @@
         <div class="policy-body">
           <section class="policy-section">
             <h2>1. Giriş</h2>
-            <p>RWNexus ("Platform", "biz", "bizim"), http://rwnexus.com/ adresindeki hizmetlerimize erişen tüm kullanıcıların ("siz", "sizin", "kullanıcı") gizliliğini ve mahremiyetini korumaya kararlıdır. Bu Gizlilik Politikası, RWNexus ile kullanıcıları arasında bağlayıcı bir anlaşma oluşturur ve platformumuz aracılığıyla toplanan kişisel bilgilerin toplanması, kullanımı, açıklanması ve korunması uygulamalarımızı özetler.</p>
+            <p>SciWriteNexus ("Platform", "biz", "bizim"), http://sciwritenexus.com/ adresindeki hizmetlerimize erişen tüm kullanıcıların ("siz", "sizin", "kullanıcı") gizliliğini ve mahremiyetini korumaya kararlıdır. Bu Gizlilik Politikası, SciWriteNexus ile kullanıcıları arasında bağlayıcı bir anlaşma oluşturur ve platformumuz aracılığıyla toplanan kişisel bilgilerin toplanması, kullanımı, açıklanması ve korunması uygulamalarımızı özetler.</p>
           </section>
 
           <section class="policy-section">
             <h2>2. Kapsam ve Uygulanabilirlik</h2>
-            <p>Bu Gizlilik Politikası, RWNexus platformu aracılığıyla toplanan tüm bilgilere uygulanır; web sitemiz, mobil uygulamalarımız, e-posta iletişimlerimiz ve işlettiğimiz diğer dijital arayüzler aracılığıyla toplanan veriler dahildir.</p>
+            <p>Bu Gizlilik Politikası, SciWriteNexus platformu aracılığıyla toplanan tüm bilgilere uygulanır; web sitemiz, mobil uygulamalarımız, e-posta iletişimlerimiz ve işlettiğimiz diğer dijital arayüzler aracılığıyla toplanan veriler dahildir.</p>
           </section>
 
           <section class="policy-section">
             <h2>3. Topladığımız Bilgiler</h2>
-            <p>RWNexus, hizmetlerimizi sağlamak ve iyileştirmek için çeşitli türlerde bilgiler toplar. Kişisel bilgiler, sizi bir birey olarak tanımlayabilen verileri ifade eder; tam adınız, akademik unvanınız, kurumsal bağlantınız, e-posta adresiniz, telefon numaranız, posta adresiniz ve ödeme bilgileriniz dahildir.</p>
+            <p>SciWriteNexus, hizmetlerimizi sağlamak ve iyileştirmek için çeşitli türlerde bilgiler toplar. Kişisel bilgiler, sizi bir birey olarak tanımlayabilen verileri ifade eder; tam adınız, akademik unvanınız, kurumsal bağlantınız, e-posta adresiniz ve ödeme bilgileriniz dahildir.</p>
           </section>
 
           <section class="policy-section">
@@ -32,37 +32,37 @@
 
           <section class="policy-section">
             <h2>5. Toplanan Bilgilerin Kullanımı</h2>
-            <p>RWNexus, toplanan bilgileri öncelikle temel hizmetlerimizi sunmak ve geliştirmek için kullanır. Bu, makale düzenleme taleplerini işlemeyi, istatistiksel analizler yapmayı, eğitim içeriği sağlamayı, kullanıcı hesaplarını yönetmeyi ve kullanıcılar ile uzman ekibimiz arasında iletişimi kolaylaştırmayı içerir.</p>
+            <p>SciWriteNexus, toplanan bilgileri öncelikle temel hizmetlerimizi sunmak ve geliştirmek için kullanır. Bu, makale düzenleme taleplerini işlemeyi, istatistiksel analizler yapmayı, eğitim içeriği sağlamayı, kullanıcı hesaplarını yönetmeyi ve kullanıcılar ile uzman ekibimiz arasında iletişimi kolaylaştırmayı içerir.</p>
           </section>
 
           <section class="policy-section">
             <h2>6. Bilgi Paylaşımı ve Açıklama</h2>
-            <p>RWNexus, bilgi paylaşımı üzerinde katı kontroller uygular. Kişisel bilgilerinizi üçüncü taraflara pazarlama amaçlarıyla satmayız, kiralamayız veya takas etmeyiz. Araştırma içeriğiniz ve kişisel verileriniz, açıkça paylaşımı veya yayınlamayı yetkilendirmediğiniz sürece gizli kalır.</p>
+            <p>SciWriteNexus, bilgi paylaşımı üzerinde katı kontroller uygular. Kişisel bilgilerinizi üçüncü taraflara pazarlama amaçlarıyla satmayız, kiralamayız veya takas etmeyiz. Araştırma içeriğiniz ve kişisel verileriniz, açıkça paylaşımı veya yayınlamayı yetkilendirmediğiniz sürece gizli kalır.</p>
           </section>
 
           <section class="policy-section">
             <h2>7. Veri Güvenlik Önlemleri</h2>
-            <p>Bilgilerinizi korumak RWNexus operasyonlarında en önemli önceliktir. Verileri yetkisiz erişime, değiştirmeye, açıklamaya veya yok etmeye karşı korumak için çok katmanlı güvenlik uygularız.</p>
+            <p>Bilgilerinizi korumak SciWriteNexus operasyonlarında en önemli önceliktir. Verileri yetkisiz erişime, değiştirmeye, açıklamaya veya yok etmeye karşı korumak için çok katmanlı güvenlik uygularız.</p>
           </section>
 
           <section class="policy-section">
             <h2>8. Haklarınız ve Seçimleriniz</h2>
-            <p>RWNexus, kişisel bilgileriniz üzerindeki özerkliğinize saygı duyar. Size ait kişisel bilgilere erişim hakkınız vardır; bu, hesap ayarlarınız aracılığıyla veya gizlilik ekibimizle iletişime geçerek kullanılabilir.</p>
+            <p>SciWriteNexus, kişisel bilgileriniz üzerindeki özerkliğinize saygı duyar. Size ait kişisel bilgilere erişim hakkınız vardır; bu, hesap ayarlarınız aracılığıyla veya gizlilik ekibimizle iletişime geçerek kullanılabilir.</p>
           </section>
 
           <section class="policy-section">
             <h2>9. Uluslararası Veri Transferleri</h2>
-            <p>RWNexus, araştırmacılara küresel olarak hizmet verir, bu da uluslararası veri transferlerini gerektirir. Kişisel bilgileri sınırlar ötesinde aktardığımızda, uygun koruma önlemlerinin yerinde olduğundan emin oluruz.</p>
+            <p>SciWriteNexus, araştırmacılara küresel olarak hizmet verir, bu da uluslararası veri transferlerini gerektirir. Kişisel bilgileri sınırlar ötesinde aktardığımızda, uygun koruma önlemlerinin yerinde olduğundan emin oluruz.</p>
           </section>
 
           <section class="policy-section">
             <h2>10. Çerezler ve İzleme Teknolojileri</h2>
-            <p>Çerezler ve benzeri teknolojilerin kullanımı, RWNexus'taki deneyiminizi geliştirir. Temel çerezler, oturum açma oturumunuzu sürdürmek, dil tercihlerinizi hatırlamak ve güvenli bağlantılar sağlamak gibi temel işlevleri etkinleştirir.</p>
+            <p>Çerezler ve benzeri teknolojilerin kullanımı, SciWriteNexus'taki deneyiminizi geliştirir. Temel çerezler, oturum açma oturumunuzu sürdürmek, dil tercihlerinizi hatırlamak ve güvenli bağlantılar sağlamak gibi temel işlevleri etkinleştirir.</p>
           </section>
 
           <section class="policy-section">
             <h2>11. Çocukların Gizliliği</h2>
-            <p>RWNexus, yetişkin araştırmacılar ve akademik profesyoneller için tasarlanmıştır. 18 yaşın altındaki bireylerden bilerek kişisel bilgi toplamayız.</p>
+            <p>SciWriteNexus, yetişkin araştırmacılar ve akademik profesyoneller için tasarlanmıştır. 18 yaşın altındaki bireylerden bilerek kişisel bilgi toplamayız.</p>
           </section>
 
           <section class="policy-section">
@@ -72,9 +72,9 @@
 
           <section class="policy-section">
             <h2>13. İletişim Bilgileri</h2>
-            <p>RWNexus, bu Gizlilik Politikası ve veri uygulamalarımız hakkındaki soruları, endişeleri ve geri bildirimleri memnuniyetle karşılar. Hızlı yardım için gizlilik ekibimizle birden fazla kanal aracılığıyla iletişime geçebilirsiniz.</p>
-            <p><strong>E-posta:</strong> privacy@rwnexus.com</p>
-            <p><strong>Veri Koruma Sorumlusu:</strong> dpo@rwnexus.com</p>
+            <p>SciWriteNexus, bu Gizlilik Politikası ve veri uygulamalarımız hakkındaki soruları, endişeleri ve geri bildirimleri memnuniyetle karşılar. Hızlı yardım için gizlilik ekibimizle birden fazla kanal aracılığıyla iletişime geçebilirsiniz.</p>
+            <p><strong>E-posta:</strong> privacy@sciwritenexus.com</p>
+            <p><strong>Veri Koruma Sorumlusu:</strong> dpo@sciwritenexus.com</p>
           </section>
         </div>
       </div>

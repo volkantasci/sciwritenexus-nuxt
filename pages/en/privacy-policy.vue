@@ -12,17 +12,17 @@
         <div class="policy-body">
           <section class="policy-section">
             <h2>1. Introduction</h2>
-            <p>RWNexus ("Platform", "we", "us", "our") is committed to protecting the privacy and confidentiality of all users ("you", "your", "user") who access our services at http://rwnexus.com/. This Privacy Policy constitutes a binding agreement between RWNexus and its users, outlining our practices regarding the collection, use, disclosure, and protection of personal information obtained through our platform.</p>
+            <p>SciWriteNexus ("Platform", "we", "us", "our") is committed to protecting the privacy and confidentiality of all users ("you", "your", "user") who access our services at http://sciwritenexus.com/. This Privacy Policy constitutes a binding agreement between SciWriteNexus and its users, outlining our practices regarding the collection, use, disclosure, and protection of personal information obtained through our platform.</p>
           </section>
 
           <section class="policy-section">
             <h2>2. Scope and Applicability</h2>
-            <p>This Privacy Policy applies to all information collected through the RWNexus platform, including data gathered via our website, mobile applications, email communications, and any other digital interfaces we operate.</p>
+            <p>This Privacy Policy applies to all information collected through the SciWriteNexus platform, including data gathered via our website, mobile applications, email communications, and any other digital interfaces we operate.</p>
           </section>
 
           <section class="policy-section">
             <h2>3. Information We Collect</h2>
-            <p>RWNexus collects various types of information to provide and improve our services. Personal information refers to data that can identify you as an individual, including your full name, academic title, institutional affiliation, email address, telephone number, postal address, and payment information.</p>
+            <p>SciWriteNexus collects various types of information to provide and improve our services. Personal information refers to data that can identify you as an individual, including your full name, academic title, institutional affiliation, email address, and payment information.</p>
           </section>
 
           <section class="policy-section">
@@ -32,37 +32,37 @@
 
           <section class="policy-section">
             <h2>5. Use of Collected Information</h2>
-            <p>RWNexus utilizes collected information primarily to deliver and enhance our core services. This includes processing manuscript editing requests, conducting statistical analyses, providing educational content, managing user accounts, and facilitating communication between users and our expert team.</p>
+            <p>SciWriteNexus utilizes collected information primarily to deliver and enhance our core services. This includes processing manuscript editing requests, conducting statistical analyses, providing educational content, managing user accounts, and facilitating communication between users and our expert team.</p>
           </section>
 
           <section class="policy-section">
             <h2>6. Information Sharing and Disclosure</h2>
-            <p>RWNexus maintains strict controls over information sharing. We do not sell, rent, or trade your personal information to third parties for their marketing purposes. Your research content and personal data remain confidential unless you explicitly authorize sharing or publication.</p>
+            <p>SciWriteNexus maintains strict controls over information sharing. We do not sell, rent, or trade your personal information to third parties for their marketing purposes. Your research content and personal data remain confidential unless you explicitly authorize sharing or publication.</p>
           </section>
 
           <section class="policy-section">
             <h2>7. Data Security Measures</h2>
-            <p>Protecting your information is paramount to RWNexus operations. We implement multiple layers of security to safeguard data against unauthorized access, alteration, disclosure, or destruction.</p>
+            <p>Protecting your information is paramount to SciWriteNexus operations. We implement multiple layers of security to safeguard data against unauthorized access, alteration, disclosure, or destruction.</p>
           </section>
 
           <section class="policy-section">
             <h2>8. Your Rights and Choices</h2>
-            <p>RWNexus respects your autonomy over personal information. You have the right to access the personal information we hold about you, which can be exercised through your account settings or by contacting our privacy team.</p>
+            <p>SciWriteNexus respects your autonomy over personal information. You have the right to access the personal information we hold about you, which can be exercised through your account settings or by contacting our privacy team.</p>
           </section>
 
           <section class="policy-section">
             <h2>9. International Data Transfers</h2>
-            <p>RWNexus serves researchers globally, necessitating international data transfers. When we transfer personal information across borders, we ensure appropriate safeguards are in place.</p>
+            <p>SciWriteNexus serves researchers globally, necessitating international data transfers. When we transfer personal information across borders, we ensure appropriate safeguards are in place.</p>
           </section>
 
           <section class="policy-section">
             <h2>10. Cookies and Tracking Technologies</h2>
-            <p>Our use of cookies and similar technologies enhances your experience on RWNexus. Essential cookies enable core functionalities such as maintaining your login session, remembering your language preferences, and ensuring secure connections.</p>
+            <p>Our use of cookies and similar technologies enhances your experience on SciWriteNexus. Essential cookies enable core functionalities such as maintaining your login session, remembering your language preferences, and ensuring secure connections.</p>
           </section>
 
           <section class="policy-section">
             <h2>11. Children's Privacy</h2>
-            <p>RWNexus is designed for adult researchers and academic professionals. We do not knowingly collect personal information from individuals under the age of 18.</p>
+            <p>SciWriteNexus is designed for adult researchers and academic professionals. We do not knowingly collect personal information from individuals under the age of 18.</p>
           </section>
 
           <section class="policy-section">
@@ -72,9 +72,9 @@
 
           <section class="policy-section">
             <h2>13. Contact Information</h2>
-            <p>RWNexus welcomes questions, concerns, and feedback regarding this Privacy Policy and our data practices. You may contact our dedicated privacy team through multiple channels for prompt assistance.</p>
-            <p><strong>Email:</strong> privacy@rwnexus.com</p>
-            <p><strong>Data Protection Officer:</strong> dpo@rwnexus.com</p>
+            <p>SciWriteNexus welcomes questions, concerns, and feedback regarding this Privacy Policy and our data practices. You may contact our dedicated privacy team through multiple channels for prompt assistance.</p>
+            <p><strong>Email:</strong> privacy@sciwritenexus.com</p>
+            <p><strong>Data Protection Officer:</strong> dpo@sciwritenexus.com</p>
           </section>
         </div>
       </div>

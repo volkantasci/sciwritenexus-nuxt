@@ -98,25 +98,14 @@ export default {
       showContactForm: false,
       contactInfo: [
         {
-          icon: 'fas fa-phone',
-          title: {
-            tr: 'Telefon',
-            en: 'Phone'
-          },
-          detail: {
-            tr: '+90 542 272 31 31',
-            en: '+90 542 272 31 31'
-          }
-        },
-        {
           icon: 'fas fa-envelope',
           title: {
             tr: 'E-posta',
             en: 'Email'
           },
           detail: {
-            tr: 'info@rwnexus.com',
-            en: 'info@rwnexus.com'
+            tr: 'info@sciwritenexus.com',
+            en: 'info@sciwritenexus.com'
           }
         },
         {

@@ -12,14 +12,14 @@
         <div class="policy-sections">
           <section class="policy-section">
             <h2>1. Giriş</h2>
-            <p>RWNexus ("biz", "bizim" veya "şirket") olarak, müşterilerimizin ve web sitemiz ziyaretçilerinin gizliliğini ve kişisel verilerinin korunmasını ciddiye alıyoruz. Bu Veri Koruma Politikası, RWNexus'un kişisel verileri nasıl topladığını, kullandığını, paylaştığını ve koruduğunu açıklamaktadır.</p>
+            <p>SciWriteNexus ("biz", "bizim" veya "şirket") olarak, müşterilerimizin ve web sitemiz ziyaretçilerinin gizliliğini ve kişisel verilerinin korunmasını ciddiye alıyoruz. Bu Veri Koruma Politikası, SciWriteNexus'un kişisel verileri nasıl topladığını, kullandığını, paylaştığını ve koruduğunu açıklamaktadır.</p>
           </section>
 
           <section class="policy-section">
             <h2>2. Toplanan Veri Türleri</h2>
             <h3>2.1 Doğrudan Sağlanan Bilgiler</h3>
             <ul>
-              <li>İletişim formları aracılığıyla: Ad, soyadı, e-posta adresi, telefon numarası</li>
+              <li>İletişim formları aracılığıyla: Ad, soyadı, e-posta adresi</li>
               <li>Ücretsiz değerlendirme formları: Akademik geçmiş, proje detayları, dosya yüklemeleri</li>
               <li>İletişim bilgileri: E-posta abonelikleri, soru ve talepler</li>
             </ul>
@@ -112,9 +112,8 @@
             <h2>12. İletişim</h2>
             <p>Veri koruma politikamızla ilgili sorularınız için:</p>
             <div class="contact-info">
-              <p><strong>RWNexus</strong></p>
-              <p>E-posta: info@rwnexus.com</p>
-              <p>Telefon: +90 542 272 31 31</p>
+              <p><strong>SciWriteNexus</strong></p>
+              <p>E-posta: info@sciwritenexus.com</p>
             </div>
           </section>
         </div>

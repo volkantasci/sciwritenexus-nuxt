@@ -12,42 +12,42 @@
         <div class="terms-body">
           <section class="terms-section">
             <h2>1. Şartların Kabulü</h2>
-            <p>Bu Hizmet Şartları ("Şartlar", "Anlaşma"), siz ("Kullanıcı", "siz", "sizin") ile RWNexus ("Platform", "biz", "bizim") arasında, http://rwnexus.com/ web sitesine ve tüm ilişkili hizmetlere, özelliklere ve içeriğe erişiminizi ve kullanımınızı yöneten yasal olarak bağlayıcı bir anlaşma oluşturur.</p>
+            <p>Bu Hizmet Şartları ("Şartlar", "Anlaşma"), siz ("Kullanıcı", "siz", "sizin") ile SciWriteNexus ("Platform", "biz", "bizim") arasında, http://sciwritenexus.com/ web sitesine ve tüm ilişkili hizmetlere, özelliklere ve içeriğe erişiminizi ve kullanımınızı yöneten yasal olarak bağlayıcı bir anlaşma oluşturur.</p>
           </section>
 
           <section class="terms-section">
             <h2>2. Platform Tanımı ve Uygunluk</h2>
-            <p>RWNexus, araştırmacıların, akademisyenlerin ve bilimsel profesyonellerin yazılı iletişimlerini geliştirmelerine yardımcı olmak için tasarlanmış uzmanlaşmış bir akademik destek platformudur. Hizmetlerimiz, küresel araştırma topluluğunun ihtiyaçlarına uyarlanmış makale düzenleme, istatistiksel analiz desteği, akademik İngilizce eğitimi ve ilgili eğitim kaynaklarını kapsar.</p>
+            <p>SciWriteNexus, araştırmacıların, akademisyenlerin ve bilimsel profesyonellerin yazılı iletişimlerini geliştirmelerine yardımcı olmak için tasarlanmış uzmanlaşmış bir akademik destek platformudur. Hizmetlerimiz, küresel araştırma topluluğunun ihtiyaçlarına uyarlanmış makale düzenleme, istatistiksel analiz desteği, akademik İngilizce eğitimi ve ilgili eğitim kaynaklarını kapsar.</p>
           </section>
 
           <section class="terms-section">
             <h2>3. Fikri Mülkiyet Hakları</h2>
-            <p>RWNexus'ta bulunan tüm içerik, metin, grafikler, logolar, resimler, ses klipleri, video materyalleri, veri derlemeleri, yazılım ve Platformdaki tüm içeriğin derlenmesi dahil olmak üzere, RWNexus'un veya içerik tedarikçilerinin mülkiyetindedir ve uluslararası telif hakkı, ticari marka ve diğer fikri mülkiyet yasalarıyla korunur.</p>
+            <p>SciWriteNexus'ta bulunan tüm içerik, metin, grafikler, logolar, resimler, ses klipleri, video materyalleri, veri derlemeleri, yazılım ve Platformdaki tüm içeriğin derlenmesi dahil olmak üzere, SciWriteNexus'un veya içerik tedarikçilerinin mülkiyetindedir ve uluslararası telif hakkı, ticari marka ve diğer fikri mülkiyet yasalarıyla korunur.</p>
           </section>
 
           <section class="terms-section">
             <h2>4. Kullanıcı Tarafından Oluşturulan İçerik ve Gönderimler</h2>
-            <p>RWNexus'a araştırma el yazmaları, veri setleri, yorumlar, geri bildirim veya diğer materyaller ("Kullanıcı İçeriği") dahil olmak üzere içerik gönderdiğinizde, bu içerikteki fikri mülkiyet haklarınızın mülkiyetini elinizde tutarsınız.</p>
+            <p>SciWriteNexus'a araştırma el yazmaları, veri setleri, yorumlar, geri bildirim veya diğer materyaller ("Kullanıcı İçeriği") dahil olmak üzere içerik gönderdiğinizde, bu içerikteki fikri mülkiyet haklarınızın mülkiyetini elinizde tutarsınız.</p>
           </section>
 
           <section class="terms-section">
             <h2>5. Yasaklanmış Kullanımlar ve Davranışlar</h2>
-            <p>RWNexus kullanımınızla bağlantılı olarak aşağıdaki yasaklanmış faaliyetlerden herhangi birine girmemeyi kabul edersiniz: Geçerli yasaları, düzenlemeleri veya üçüncü taraf haklarını ihlal etmek; Platformu yasa dışı, zararlı, sahtekarlık veya kötü niyetli herhangi bir amaç için kullanmak; Platformu çalıştıran sunuculardan gelen veya giden iletileri çözmeye çalışmak; virüs, solucan veya diğer kötü amaçlı kodları yüklemek veya iletmek; Platformdan veya kullanıcılarından kişisel olarak tanımlanabilir bilgiler toplamak veya hasat etmek.</p>
+            <p>SciWriteNexus kullanımınızla bağlantılı olarak aşağıdaki yasaklanmış faaliyetlerden herhangi birine girmemeyi kabul edersiniz: Geçerli yasaları, düzenlemeleri veya üçüncü taraf haklarını ihlal etmek; Platformu yasa dışı, zararlı, sahtekarlık veya kötü niyetli herhangi bir amaç için kullanmak; Platformu çalıştıran sunuculardan gelen veya giden iletileri çözmeye çalışmak; virüs, solucan veya diğer kötü amaçlı kodları yüklemek veya iletmek; Platformdan veya kullanıcılarından kişisel olarak tanımlanabilir bilgiler toplamak veya hasat etmek.</p>
           </section>
 
           <section class="terms-section">
             <h2>6. Ödeme Şartları ve İade Politikası</h2>
-            <p>RWNexus aracılığıyla sunulan belirli hizmetler ödeme gerektirir. Hizmetlerimizi satın alarak, satın alma sırasında Platformda açıklanan tüm geçerli ücretleri ödemeyi kabul edersiniz. Aksi belirtilmedikçe tüm fiyatlar ABD doları cinsindendir. Fiyatlarımızı istediğimiz zaman değiştirme hakkını saklı tutarız, ancak değişiklikler zaten satın alınan hizmetleri etkilemez.</p>
+            <p>SciWriteNexus aracılığıyla sunulan belirli hizmetler ödeme gerektirir. Hizmetlerimizi satın alarak, satın alma sırasında Platformda açıklanan tüm geçerli ücretleri ödemeyi kabul edersiniz. Aksi belirtilmedikçe tüm fiyatlar ABD doları cinsindendir. Fiyatlarımızı istediğimiz zaman değiştirme hakkını saklı tutarız, ancak değişiklikler zaten satın alınan hizmetleri etkilemez.</p>
           </section>
 
           <section class="terms-section">
             <h2>7. Sorumluluk Reddi ve Sınırlaması</h2>
-            <p>RWNexus, tüm hizmetleri ve içeriği "olduğu gibi" ve "mevcut olduğu şekilde" herhangi bir garanti olmaksızın sağlar. Özellikle tüm garantileri, satılabilirlik, belirli bir amaca uygunluk, ihlal etmeme garantileri ve ticari kullanımdan veya işlemden doğan garantiler dahil olmak üzere açık veya zımni olarak reddederiz.</p>
+            <p>SciWriteNexus, tüm hizmetleri ve içeriği "olduğu gibi" ve "mevcut olduğu şekilde" herhangi bir garanti olmaksızın sağlar. Özellikle tüm garantileri, satılabilirlik, belirli bir amaca uygunluk, ihlal etmeme garantileri ve ticari kullanımdan veya işlemden doğan garantiler dahil olmak üzere açık veya zımni olarak reddederiz.</p>
           </section>
 
           <section class="terms-section">
             <h2>8. Tazminat</h2>
-            <p>Bu Şartların ihlalinden; Platformun kullanımından; Kullanıcı İçeriğinizden; veya başka bir tarafın haklarının ihlalinden kaynaklanan veya bunlarla ilgili her türlü iddia, yükümlülük, zarar, karar, ödül, kayıp, maliyet, gider veya ücretten (makul avukatlık ücretleri dahil) RWNexus'u, bağlı kuruluşlarını ve ilgili memurlarını, yöneticilerini, çalışanlarını, acentelerini, lisans verenlerini ve tedarikçilerini savunmayı, tazmin etmeyi ve zarar görmemelerini sağlamayı kabul edersiniz.</p>
+            <p>Bu Şartların ihlalinden; Platformun kullanımından; Kullanıcı İçeriğinizden; veya başka bir tarafın haklarının ihlalinden kaynaklanan veya bunlarla ilgili her türlü iddia, yükümlülük, zarar, karar, ödül, kayıp, maliyet, gider veya ücretten (makul avukatlık ücretleri dahil) SciWriteNexus'u, bağlı kuruluşlarını ve ilgili memurlarını, yöneticilerini, çalışanlarını, acentelerini, lisans verenlerini ve tedarikçilerini savunmayı, tazmin etmeyi ve zarar görmemelerini sağlamayı kabul edersiniz.</p>
           </section>
 
           <section class="terms-section">
@@ -57,12 +57,12 @@
 
           <section class="terms-section">
             <h2>10. Gizlilik ve Veri Koruma</h2>
-            <p>RWNexus kullanımınız aynı zamanda Gizlilik Politikamız tarafından da yönetilir. Platformu kullanarak, Gizlilik Politikasında açıklandığı şekilde bilgilerin toplanması, kullanılması ve açıklanmasına rıza gösterirsiniz. Gizliliğinizi korumaya ve kişisel bilgilerinizin ve araştırma materyallerinizin gizliliğini sürdürmeye kararlıyız.</p>
+            <p>SciWriteNexus kullanımınız aynı zamanda Gizlilik Politikamız tarafından da yönetilir. Platformu kullanarak, Gizlilik Politikasında açıklandığı şekilde bilgilerin toplanması, kullanılması ve açıklanmasına rıza gösterirsiniz. Gizliliğinizi korumaya ve kişisel bilgilerinizin ve araştırma materyallerinizin gizliliğini sürdürmeye kararlıyız.</p>
           </section>
 
           <section class="terms-section">
             <h2>11. Üçüncü Taraf Bağlantıları ve Hizmetleri</h2>
-            <p>Platform, RWNexus'a ait olmayan veya kontrol edilmeyen üçüncü taraf web sitelerine, hizmetlere veya kaynaklara bağlantılar içerebilir. Bu bağlantıları kolaylık sağlamak için sunuyoruz, ancak üçüncü tarafların sunduğu içeriği, ürünleri veya hizmetleri onaylamıyoruz ve bunlardan sorumlu değiliz.</p>
+            <p>Platform, SciWriteNexus'a ait olmayan veya kontrol edilmeyen üçüncü taraf web sitelerine, hizmetlere veya kaynaklara bağlantılar içerebilir. Bu bağlantıları kolaylık sağlamak için sunuyoruz, ancak üçüncü tarafların sunduğu içeriği, ürünleri veya hizmetleri onaylamıyoruz ve bunlardan sorumlu değiliz.</p>
           </section>
 
           <section class="terms-section">
@@ -72,16 +72,16 @@
 
           <section class="terms-section">
             <h2>13. Genel Hükümler</h2>
-            <p>Bu Şartlar, Platformunuzun kullanımına ilişkin siz ve RWNexus arasındaki tam anlaşmayı oluşturur ve önceki tüm anlaşmaları ve anlayışları geçersiz kılar. Bu Şartların herhangi bir hükmünün geçersiz veya uygulanamaz olduğu tespit edilirse, kalan hükümler tam güç ve etkiyle yürürlükte kalacaktır.</p>
+            <p>Bu Şartlar, Platformunuzun kullanımına ilişkin siz ve SciWriteNexus arasındaki tam anlaşmayı oluşturur ve önceki tüm anlaşmaları ve anlayışları geçersiz kılar. Bu Şartların herhangi bir hükmünün geçersiz veya uygulanamaz olduğu tespit edilirse, kalan hükümler tam güç ve etkiyle yürürlükte kalacaktır.</p>
           </section>
 
           <section class="terms-section">
             <h2>14. İletişim Bilgileri</h2>
             <p>Bu Hizmet Şartları hakkında herhangi bir sorunuz, endişeniz veya yorumunuz varsa, lütfen bizimle iletişime geçin:</p>
-            <p><strong>RWNexus</strong></p>
-            <p><strong>E-posta:</strong> support@rwnexus.com</p>
-            <p><strong>Yasal Sorular:</strong> legal@rwnexus.com</p>
-            <p><strong>Web Sitesi:</strong> http://rwnexus.com/</p>
+            <p><strong>SciWriteNexus</strong></p>
+            <p><strong>E-posta:</strong> support@sciwritenexus.com</p>
+            <p><strong>Yasal Sorular:</strong> legal@sciwritenexus.com</p>
+            <p><strong>Web Sitesi:</strong> http://sciwritenexus.com/</p>
           </section>
         </div>
       </div>

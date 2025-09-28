@@ -12,7 +12,7 @@
         <div class="disclaimer-sections">
           <section class="disclaimer-section">
             <h2>1. Nature of Our Services</h2>
-            <p>The academic consulting services provided by RWNexus are designed to develop, improve, and bring your academic work in line with academic standards. Our services aim to:</p>
+            <p>The academic consulting services provided by SciWriteNexus are designed to develop, improve, and bring your academic work in line with academic standards. Our services aim to:</p>
             <ul>
               <li>Enhance your academic writing skills</li>
               <li>Improve the quality of your existing work</li>
@@ -24,7 +24,7 @@
 
           <section class="disclaimer-section">
             <h2>2. Academic Integrity Principles</h2>
-            <p>RWNexus places great importance on academic integrity and ethical values:</p>
+            <p>SciWriteNexus places great importance on academic integrity and ethical values:</p>
             <ul>
               <li>All work must be original and free of plagiarism</li>
               <li>References must be properly cited</li>
@@ -36,7 +36,7 @@
           <section class="disclaimer-section">
             <h2>3. Liability Limitations</h2>
             <h3>3.1 Academic Success Guarantee</h3>
-            <p>RWNexus does not guarantee any academic achievements resulting from the use of our services. Success depends on individual effort, ability, and other factors.</p>
+            <p>SciWriteNexus does not guarantee any academic achievements resulting from the use of our services. Success depends on individual effort, ability, and other factors.</p>
 
             <h3>3.2 Publication Acceptance</h3>
             <p>We do not guarantee journal publication acceptance or thesis approval. These decisions are entirely at the discretion of the relevant academic institutions.</p>
@@ -59,7 +59,7 @@
 
           <section class="disclaimer-section">
             <h2>5. Intellectual Property Rights</h2>
-            <p>All content provided by clients remains the intellectual property of the client. RWNexus:</p>
+            <p>All content provided by clients remains the intellectual property of the client. SciWriteNexus:</p>
             <ul>
               <li>Protects the confidentiality of client work</li>
               <li>Does not share content with third parties</li>
@@ -70,7 +70,7 @@
 
           <section class="disclaimer-section">
             <h2>6. Areas Outside Service Scope</h2>
-            <p>RWNexus does not provide the following services:</p>
+            <p>SciWriteNexus does not provide the following services:</p>
             <ul>
               <li>Exam preparation or exam questions</li>
               <li>Completing assignments or projects</li>
@@ -95,16 +95,15 @@
             <h2>8. Contact and Support</h2>
             <p>For questions regarding our services:</p>
             <div class="contact-info">
-              <p><strong>RWNexus Academic Consulting</strong></p>
-              <p>Email: info@rwnexus.com</p>
-              <p>Phone: +90 542 272 31 31</p>
+              <p><strong>SciWriteNexus Academic Consulting</strong></p>
+              <p>Email: info@sciwritenexus.com</p>
               <p>Working Hours: Monday-Friday 09:00-18:00</p>
             </div>
           </section>
 
           <section class="disclaimer-section">
             <h2>9. Legal Notice</h2>
-            <p>This disclaimer does not limit RWNexus's legal obligations. Clients are deemed to have approved this policy by accepting the service terms.</p>
+            <p>This disclaimer does not limit SciWriteNexus's legal obligations. Clients are deemed to have approved this policy by accepting the service terms.</p>
           </section>
         </div>
       </div>

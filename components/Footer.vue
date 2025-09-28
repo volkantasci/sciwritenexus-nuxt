@@ -50,8 +50,7 @@
           <address>
             <p v-if="language === 'tr'">Adres: İstanbul, Türkiye</p>
             <p v-else>Address: Istanbul, Turkey</p>
-            <p><i class="fas fa-phone"></i> +90 555 123 4567</p>
-            <p><i class="fas fa-envelope"></i> info@rwnexus.com</p>
+            <p><i class="fas fa-envelope"></i> info@sciwritenexus.com</p>
             <p v-if="language === 'tr'"><i class="fas fa-clock"></i> Çalışma Saatleri: Pazartesi-Cuma 09:00-18:00</p>
             <p v-else><i class="fas fa-clock"></i> Working Hours: Monday-Friday 09:00-18:00</p>
           </address>
