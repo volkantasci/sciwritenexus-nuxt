@@ -7,11 +7,11 @@
           <h2 v-else>Take the First Step for Your Academic Success</h2>
           
           <p v-if="language === 'tr'">
-            Projelerinizi bir sonraki seviyeye taşımaya hazır mısınız? Uzman ekibimizle iletişime geçin ve 
+            Projelerinizi bir sonraki seviyeye taşımaya hazır mısınız? Uzman ekibimizle iletişime geçin ve
             akademik hedeflerinize ulaşmak için somut adımlar atın.
           </p>
           <p v-else>
-            Are you ready to take your projects to the next level? Contact our expert team and 
+            Are you ready to take your projects to the next level? Contact our expert team and
             take concrete steps to achieve your academic goals.
           </p>
           
@@ -30,11 +30,11 @@
           </ul>
           
           <div class="contact-buttons">
-            <button class="btn btn-primary" v-if="language === 'tr'" @click="scrollToSection('contact')">Ücretsiz Değerlendirme Alın</button>
-            <button class="btn btn-primary" v-else @click="scrollToSection('contact')">Get Free Evaluation</button>
+            <button class="btn btn-primary" v-if="language === 'tr'" @click="openFreeEvaluationForm">Ücretsiz Değerlendirme Alın</button>
+            <button class="btn btn-primary" v-else @click="openFreeEvaluationForm">Get Free Evaluation</button>
             
-            <button class="btn btn-secondary" v-if="language === 'tr'" @click="scrollToSection('contact')">Doğrudan İletişime Geçin</button>
-            <button class="btn btn-secondary" v-else @click="scrollToSection('contact')">Contact Directly</button>
+            <button class="btn btn-secondary" v-if="language === 'tr'" @click="openContactForm">Doğrudan İletişime Geçin</button>
+            <button class="btn btn-secondary" v-else @click="openContactForm">Contact Directly</button>
           </div>
         </div>
         
@@ -49,12 +49,39 @@
         </div>
       </div>
     </div>
+
+    <!-- Free Evaluation Form Modal -->
+    <div v-if="showFreeEvaluationForm" class="modal-overlay" @click="closeFreeEvaluationForm">
+      <div class="modal-content" @click.stop>
+        <button class="modal-close" @click="closeFreeEvaluationForm">
+          <i class="fas fa-times"></i>
+        </button>
+        <FreeEvaluationForm :language="language" @close="closeFreeEvaluationForm" />
+      </div>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div v-if="showContactForm" class="modal-overlay" @click="closeContactForm">
+      <div class="modal-content" @click.stop>
+        <button class="modal-close" @click="closeContactForm">
+          <i class="fas fa-times"></i>
+        </button>
+        <ContactForm :language="language" @close="closeContactForm" />
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
+import FreeEvaluationForm from './FreeEvaluationForm.vue'
+import ContactForm from './ContactForm.vue'
+
 export default {
   name: 'Contact',
+  components: {
+    FreeEvaluationForm,
+    ContactForm
+  },
   props: {
     language: {
       type: String,
@@ -67,6 +94,8 @@ export default {
   },
   data() {
     return {
+      showFreeEvaluationForm: false,
+      showContactForm: false,
       contactInfo: [
         {
           icon: 'fas fa-phone',
@@ -131,6 +160,22 @@ export default {
           behavior: 'smooth'
         });
       }
+    },
+    openFreeEvaluationForm() {
+      this.showFreeEvaluationForm = true;
+      document.body.style.overflow = 'hidden';
+    },
+    closeFreeEvaluationForm() {
+      this.showFreeEvaluationForm = false;
+      document.body.style.overflow = '';
+    },
+    openContactForm() {
+      this.showContactForm = true;
+      document.body.style.overflow = 'hidden';
+    },
+    closeContactForm() {
+      this.showContactForm = false;
+      document.body.style.overflow = '';
     }
   }
 }
@@ -144,6 +189,84 @@ export default {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dark mode modal styles */
+body.dark .modal-content {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+body.dark .modal-close {
+  color: #cccccc;
+}
+
+body.dark .modal-close:hover {
+  background: #333;
+  color: #ffffff;
 }
 
 .contact::before {

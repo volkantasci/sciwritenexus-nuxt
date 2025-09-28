@@ -4,9 +4,9 @@
       <div class="footer-content">
         <div class="footer-section about">
           <div class="logo-container">
-            <img 
-              :src="isDarkMode ? '/images/nexus-logo-dark.svg' : '/images/nexus-logo-light.svg'" 
-              alt="SciWriteNexus" 
+            <img
+              :src="isDarkMode ? '/images/nexus-logo-dark.svg' : '/images/nexus-logo-light.svg'"
+              alt="RWNexus"
               class="footer-logo"
             >
           </div>
@@ -51,7 +51,7 @@
             <p v-if="language === 'tr'">Adres: İstanbul, Türkiye</p>
             <p v-else>Address: Istanbul, Turkey</p>
             <p><i class="fas fa-phone"></i> +90 555 123 4567</p>
-            <p><i class="fas fa-envelope"></i> info@sciwritenexus.com</p>
+            <p><i class="fas fa-envelope"></i> info@rwnexus.com</p>
             <p v-if="language === 'tr'"><i class="fas fa-clock"></i> Çalışma Saatleri: Pazartesi-Cuma 09:00-18:00</p>
             <p v-else><i class="fas fa-clock"></i> Working Hours: Monday-Friday 09:00-18:00</p>
           </address>
@@ -67,16 +67,18 @@
         </div>
         
         <div class="legal">
-          <a href="#" v-if="language === 'tr'">Gizlilik Politikası</a>
-          <a href="#" v-else>Privacy Policy</a>
-          <a href="#" v-if="language === 'tr'">Kullanım Şartları</a>
-          <a href="#" v-else>Terms of Use</a>
-          <a href="#" v-if="language === 'tr'">Çerez Politikası</a>
-          <a href="#" v-else>Cookie Policy</a>
+          <a :href="`/${language}/privacy-policy`" v-if="language === 'tr'">Gizlilik Politikası</a>
+          <a :href="`/${language}/privacy-policy`" v-else>Privacy Policy</a>
+          <a :href="`/${language}/terms-of-service`" v-if="language === 'tr'">Kullanım Şartları</a>
+          <a :href="`/${language}/terms-of-service`" v-else>Terms of Service</a>
+          <a :href="`/${language}/data-protection-policy`" v-if="language === 'tr'">Veri Koruma Politikası</a>
+          <a :href="`/${language}/data-protection-policy`" v-else>Data Protection Policy</a>
+          <a :href="`/${language}/academic-services-disclaimer`" v-if="language === 'tr'">Akademik Hizmetler Sorumluluk Reddi</a>
+          <a :href="`/${language}/academic-services-disclaimer`" v-else>Academic Services Disclaimer</a>
         </div>
         
         <div class="copyright">
-          <p>&copy; 2025 SciWriteNexus. {{ language === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.' }}</p>
+          <p>&copy; 2025 RWNexus. {{ language === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.' }}</p>
         </div>
       </div>
     </div>
