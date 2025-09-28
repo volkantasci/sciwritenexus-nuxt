@@ -1,87 +1,72 @@
 <template>
-  <section class="contact" id="contact" :class="{ dark: isDarkMode }">
-    <div class="container">
-      <div class="contact-content">
-        <div class="contact-text">
-          <h2 v-if="language === 'tr'">Akademik Başarınız İçin İlk Adımı Atın</h2>
-          <h2 v-else>Take the First Step for Your Academic Success</h2>
-          
-          <p v-if="language === 'tr'">
-            Projelerinizi bir sonraki seviyeye taşımaya hazır mısınız? Uzman ekibimizle iletişime geçin ve
-            akademik hedeflerinize ulaşmak için somut adımlar atın.
-          </p>
-          <p v-else>
-            Are you ready to take your projects to the next level? Contact our expert team and
-            take concrete steps to achieve your academic goals.
-          </p>
-          
-          <ul class="contact-features">
-            <li v-if="language === 'tr'"><i class="fas fa-check"></i> Ücretsiz ilk değerlendirme</li>
-            <li v-else><i class="fas fa-check"></i> Free initial evaluation</li>
-            
-            <li v-if="language === 'tr'"><i class="fas fa-check"></i> 24 saat içinde geri dönüş</li>
-            <li v-else><i class="fas fa-check"></i> Response within 24 hours</li>
-            
-            <li v-if="language === 'tr'"><i class="fas fa-check"></i> Kişiselleştirilmiş çözümler</li>
-            <li v-else><i class="fas fa-check"></i> Personalized solutions</li>
-            
-            <li v-if="language === 'tr'"><i class="fas fa-check"></i> Deneyimli akademik uzmanlar</li>
-            <li v-else><i class="fas fa-check"></i> Experienced academic experts</li>
-          </ul>
-          
-          <div class="contact-buttons">
-            <button class="btn btn-primary" v-if="language === 'tr'" @click="openFreeEvaluationForm">Ücretsiz Değerlendirme Alın</button>
-            <button class="btn btn-primary" v-else @click="openFreeEvaluationForm">Get Free Evaluation</button>
-            
-            <button class="btn btn-secondary" v-if="language === 'tr'" @click="openContactForm">Doğrudan İletişime Geçin</button>
-            <button class="btn btn-secondary" v-else @click="openContactForm">Contact Directly</button>
+  <footer>
+    <div class="footer-content">
+      <div class="contact-form" id="contact">
+        <h3>{{ getFormTitle() }}</h3>
+        <form @submit.prevent="handleSubmit">
+          <div class="form-group">
+            <label for="name">{{ getNameLabel() }}</label>
+            <input type="text" id="name" name="name" v-model="formData.name" required>
           </div>
+          <div class="form-group">
+            <label for="email">{{ getEmailLabel() }}</label>
+            <input type="email" id="email" name="email" v-model="formData.email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">{{ getSubjectLabel() }}</label>
+            <input type="text" id="subject" name="subject" v-model="formData.subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">{{ getMessageLabel() }}</label>
+            <textarea id="message" name="message" v-model="formData.message" :placeholder="getMessagePlaceholder()" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">{{ getSubmitButtonText() }}</button>
+        </form>
+      </div>
+      
+      <div class="social-section">
+        <div class="footer-logo-container">
+          <img
+            :src="isDarkMode ? '/images/nexus-logo-dark.svg' : '/images/nexus-logo-light.svg'"
+            alt="SciWrite Nexus"
+            class="footer-logo"
+          >
+        </div>
+        <h3>{{ getSocialTitle() }}</h3>
+        <div class="social-links">
+          <a href="#" :title="getSocialLinkTitle('twitter')">🐦</a>
+          <a href="#" :title="getSocialLinkTitle('linkedin')">💼</a>
+          <a href="#" :title="getSocialLinkTitle('researchgate')">🔬</a>
+          <a href="#" :title="getSocialLinkTitle('orcid')">📚</a>
         </div>
         
-        <div class="contact-info">
-          <div class="info-item" v-for="info in contactInfo" :key="info.title">
-            <i :class="info.icon"></i>
-            <div>
-              <h3>{{ getInfoTitle(info) }}</h3>
-              <p>{{ getInfoDetail(info) }}</p>
-            </div>
-          </div>
+        <div style="margin-top: 2rem;">
+          <h4 style="margin-bottom: 1rem; color: var(--accent-color);">{{ getContactInfoTitle() }}</h4>
+          <p style="margin-bottom: 0.5rem;">📧 {{ getEmail() }}</p>
+          <p>📍 {{ getLocation() }}</p>
         </div>
       </div>
     </div>
-
-    <!-- Free Evaluation Form Modal -->
-    <div v-if="showFreeEvaluationForm" class="modal-overlay" @click="closeFreeEvaluationForm">
-      <div class="modal-content" @click.stop>
-        <button class="modal-close" @click="closeFreeEvaluationForm">
-          <i class="fas fa-times"></i>
-        </button>
-        <FreeEvaluationForm :language="language" @close="closeFreeEvaluationForm" />
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="footer-links">
+          <a :href="`/${language}/privacy-policy`">{{ getPrivacyLink() }}</a>
+          <a :href="`/${language}/terms-of-service`">{{ getTermsLink() }}</a>
+          <a :href="`/${language}/data-protection-policy`">{{ getDataProtectionLink() }}</a>
+          <a :href="`/${language}/academic-services-disclaimer`">{{ getDisclaimerLink() }}</a>
+        </div>
+        <div class="copyright">
+          <p>{{ getCopyrightText() }}</p>
+        </div>
       </div>
     </div>
-
-    <!-- Contact Form Modal -->
-    <div v-if="showContactForm" class="modal-overlay" @click="closeContactForm">
-      <div class="modal-content" @click.stop>
-        <button class="modal-close" @click="closeContactForm">
-          <i class="fas fa-times"></i>
-        </button>
-        <ContactForm :language="language" @close="closeContactForm" />
-      </div>
-    </div>
-  </section>
+  </footer>
 </template>
 
 <script>
-import FreeEvaluationForm from './FreeEvaluationForm.vue'
-import ContactForm from './ContactForm.vue'
-
 export default {
   name: 'Contact',
-  components: {
-    FreeEvaluationForm,
-    ContactForm
-  },
   props: {
     language: {
       type: String,
@@ -94,532 +79,402 @@ export default {
   },
   data() {
     return {
-      showFreeEvaluationForm: false,
-      showContactForm: false,
-      contactInfo: [
-        {
-          icon: 'fas fa-envelope',
-          title: {
-            tr: 'E-posta',
-            en: 'Email'
-          },
-          detail: {
-            tr: 'info@sciwritenexus.com',
-            en: 'info@sciwritenexus.com'
-          }
+      formData: {
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      },
+      content: {
+        formTitle: {
+          tr: 'Ücretsiz Değerlendirme Alın',
+          en: 'Get Your Free Evaluation'
         },
-        {
-          icon: 'fab fa-whatsapp',
-          title: {
-            tr: 'WhatsApp',
-            en: 'WhatsApp'
-          },
-          detail: {
-            tr: 'Anlık mesajlaşma için tıklayın',
-            en: 'Click for instant messaging'
-          }
+        nameLabel: {
+          tr: 'Ad Soyad',
+          en: 'Name Surname'
         },
-        {
-          icon: 'fas fa-video',
-          title: {
-            tr: 'Online Randevu',
-            en: 'Online Appointment'
-          },
-          detail: {
-            tr: 'Ücretsiz danışmanlık görüşmesi',
-            en: 'Free consultation meeting'
-          }
+        emailLabel: {
+          tr: 'E-posta',
+          en: 'Email'
+        },
+        subjectLabel: {
+          tr: 'Konu',
+          en: 'Subject'
+        },
+        messageLabel: {
+          tr: 'Mesaj',
+          en: 'Message'
+        },
+        messagePlaceholder: {
+          tr: 'Projenizi ve gereksinimlerinizi açıklayın...',
+          en: 'Describe your project and requirements...'
+        },
+        submitButton: {
+          tr: 'Mesaj Gönder',
+          en: 'Send Message'
+        },
+        socialTitle: {
+          tr: 'Bizimle Bağlantı Kurun',
+          en: 'Connect With Us'
+        },
+        contactInfoTitle: {
+          tr: 'İletişim Bilgileri',
+          en: 'Contact Information'
+        },
+        email: {
+          tr: 'info@sciwritenexus.com',
+          en: 'info@sciwritenexus.com'
+        },
+        location: {
+          tr: 'İstanbul, Türkiye',
+          en: 'Istanbul, Turkey'
+        },
+        privacy: {
+          tr: 'Gizlilik Politikası',
+          en: 'Privacy Policy'
+        },
+        terms: {
+          tr: 'Hizmet Şartları',
+          en: 'Terms of Service'
+        },
+        dataProtection: {
+          tr: 'Veri Koruma Politikası',
+          en: 'Data Protection Policy'
+        },
+        disclaimer: {
+          tr: 'Akademik Hizmetler Sorumluluk Reddi',
+          en: 'Academic Services Disclaimer'
+        },
+        copyright: {
+          tr: '© 2025 SciWriteNexus. Tüm hakları saklıdır.',
+          en: '© 2025 SciWriteNexus. All rights reserved.'
         }
-      ]
+      }
     }
   },
   methods: {
-    getInfoTitle(info) {
-      return this.language === 'tr' ? info.title.tr : info.title.en;
+    getFormTitle() {
+      return this.language === 'tr' ? this.content.formTitle.tr : this.content.formTitle.en;
     },
-    getInfoDetail(info) {
-      return this.language === 'tr' ? info.detail.tr : info.detail.en;
+    getNameLabel() {
+      return this.language === 'tr' ? this.content.nameLabel.tr : this.content.nameLabel.en;
     },
-    scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const offsetTop = element.offsetTop - 80; // Adjust for header height
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
+    getEmailLabel() {
+      return this.language === 'tr' ? this.content.emailLabel.tr : this.content.emailLabel.en;
     },
-    openFreeEvaluationForm() {
-      this.showFreeEvaluationForm = true;
-      document.body.style.overflow = 'hidden';
+    getSubjectLabel() {
+      return this.language === 'tr' ? this.content.subjectLabel.tr : this.content.subjectLabel.en;
     },
-    closeFreeEvaluationForm() {
-      this.showFreeEvaluationForm = false;
-      document.body.style.overflow = '';
+    getMessageLabel() {
+      return this.language === 'tr' ? this.content.messageLabel.tr : this.content.messageLabel.en;
     },
-    openContactForm() {
-      this.showContactForm = true;
-      document.body.style.overflow = 'hidden';
+    getMessagePlaceholder() {
+      return this.language === 'tr' ? this.content.messagePlaceholder.tr : this.content.messagePlaceholder.en;
     },
-    closeContactForm() {
-      this.showContactForm = false;
-      document.body.style.overflow = '';
+    getSubmitButtonText() {
+      return this.language === 'tr' ? this.content.submitButton.tr : this.content.submitButton.en;
+    },
+    getSocialTitle() {
+      return this.language === 'tr' ? this.content.socialTitle.tr : this.content.socialTitle.en;
+    },
+    getContactInfoTitle() {
+      return this.language === 'tr' ? this.content.contactInfoTitle.tr : this.content.contactInfoTitle.en;
+    },
+    getEmail() {
+      return this.language === 'tr' ? this.content.email.tr : this.content.email.en;
+    },
+    getPhone() {
+      return this.language === 'tr' ? this.content.phone.tr : this.content.phone.en;
+    },
+    getLocation() {
+      return this.language === 'tr' ? this.content.location.tr : this.content.location.en;
+    },
+    getPrivacyLink() {
+      return this.language === 'tr' ? this.content.privacy.tr : this.content.privacy.en;
+    },
+    getTermsLink() {
+      return this.language === 'tr' ? this.content.terms.tr : this.content.terms.en;
+    },
+    getDataProtectionLink() {
+      return this.language === 'tr' ? this.content.dataProtection.tr : this.content.dataProtection.en;
+    },
+    getDisclaimerLink() {
+      return this.language === 'tr' ? this.content.disclaimer.tr : this.content.disclaimer.en;
+    },
+    getCopyrightText() {
+      return this.language === 'tr' ? this.content.copyright.tr : this.content.copyright.en;
+    },
+    getSocialLinkTitle(platform) {
+      const titles = {
+        twitter: { tr: 'Twitter/X', en: 'Twitter/X' },
+        linkedin: { tr: 'LinkedIn', en: 'LinkedIn' },
+        researchgate: { tr: 'ResearchGate', en: 'ResearchGate' },
+        orcid: { tr: 'ORCID', en: 'ORCID' }
+      };
+      return this.language === 'tr' ? titles[platform].tr : titles[platform].en;
+    },
+    handleSubmit() {
+      alert(this.language === 'tr' 
+        ? 'Teşekkür ederiz! Mesajınızı aldık. 24 saat içinde sizinle iletişime geçeceğiz.' 
+        : 'Thank you for your inquiry! We will contact you within 24 hours with a free evaluation of your project.'
+      );
+      this.formData = {
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      };
     }
   }
 }
 </script>
 
 <style scoped>
-.contact {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 50%, #ffffff 100%);
-  color: #2c3e50;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+footer {
+  background: var(--dark-bg);
+  color: white;
+  padding: 4rem 2rem 2rem;
 }
 
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 12px;
-  max-width: 90%;
-  max-height: 90%;
-  overflow-y: auto;
-  position: relative;
-  animation: slideIn 0.3s ease;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  z-index: 10000;
-}
-
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #666;
-  cursor: pointer;
-  z-index: 10;
-  padding: 5px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.modal-close:hover {
-  background: #f5f5f5;
-  color: #333;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Dark mode modal styles */
-body.dark .modal-content {
-  background: #1a1a1a;
-  color: #ffffff;
-}
-
-body.dark .modal-close {
-  color: #cccccc;
-}
-
-body.dark .modal-close:hover {
-  background: #333;
-  color: #ffffff;
-}
-
-.contact::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,20 C40,10 60,10 80,20' stroke='%233498db' stroke-opacity='0.1' stroke-width='2' fill='none'/%3E%3Cpath d='M20,40 C40,30 60,30 80,40' stroke='%233498db' stroke-opacity='0.1' stroke-width='2' fill='none'/%3E%3Cpath d='M20,60 C40,50 60,50 80,60' stroke='%233498db' stroke-opacity='0.1' stroke-width='2' fill='none'/%3E%3Cpath d='M20,80 C40,70 60,70 80,80' stroke='%233498db' stroke-opacity='0.1' stroke-width='2' fill='none'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='30' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='30' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='20' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='20' cy='40' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='30' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='30' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='40' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='20' cy='60' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='50' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='50' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='60' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='20' cy='80' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='70' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='70' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3C/svg%3E");
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.container {
-  max-width: 1200px;
+.footer-content {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.contact-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
 }
 
-.contact-text h2 {
-  font-size: 2.5rem;
+.contact-form {
+  background: rgba(255,255,255,0.05);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-form h3 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-group {
   margin-bottom: 1.5rem;
-  color: #2c3e50;
 }
 
-.contact-text p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-  color: #34495e;
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #cbd5e0;
   font-weight: 500;
 }
 
-.contact-features {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s;
 }
 
-.contact-features li {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  font-size: 1.1rem;
-  color: #2c3e50;
-  font-weight: 500;
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
 }
 
-.contact-features i {
-  color: #3498db;
-  margin-right: 1rem;
-  font-size: 1.2rem;
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
 }
 
-.contact-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 1rem 2.2rem;
+.submit-btn {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: white;
   border: none;
+  padding: 1rem 2.5rem;
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0.1px;
-  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+}
+
+.social-section {
+  text-align: center;
+}
+
+.footer-logo-container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.social-section h3 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
+  width: 55px;
+  height: 55px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.1);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  color: #ffffff;
-  border: 2px solid transparent;
-  font-weight: 700;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+.social-links a:hover {
+  background: var(--secondary-color);
+  transform: translateY(-5px) rotate(360deg);
+  border-color: var(--secondary-color);
 }
 
-.btn-primary:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(25, 118, 210, 0.6);
-  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+.footer-bottom {
+  background: rgba(0,0,0,0.3);
+  margin: 0 -2rem -2rem;
+  padding: 2rem;
 }
 
-.btn-secondary {
-  background: transparent;
-  color: #1976d2;
-  border: 2px solid #1976d2;
-  font-weight: 600;
-}
-
-.btn-secondary:hover {
-  background: #1976d2;
-  color: #ffffff;
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(25, 118, 210, 0.4);
-  border-color: #1976d2;
-}
-
-.contact-info .info-item {
+.footer-bottom-content {
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.contact-info .info-item i {
-  font-size: 1.8rem;
-  color: #3498db;
-  margin-right: 1.5rem;
-  min-width: 30px;
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.contact-info .info-item h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.3rem;
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
 }
 
-.contact-info .info-item p {
-  margin: 0;
-  color: #7f8c8d;
-  font-size: 1.1rem;
-  font-weight: 500;
+.footer-links a:hover {
+  color: var(--accent-color);
+}
+
+.copyright {
+  color: #94a3b8;
+  font-size: 0.9rem;
 }
 
 /* Dark mode styles */
-body.dark .contact {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+body.dark .contact-form {
+  background: rgba(0,0,0,0.3);
 }
 
-body.dark .contact::before {
-  opacity: 0.2;
+body.dark .form-group input,
+body.dark .form-group textarea {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
 }
 
-body.dark .contact .btn-primary {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-  color: #ffffff;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-body.dark .contact .btn-primary:hover {
-  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-body.dark .contact .btn-secondary {
-  color: #e0e0e0;
-  border-color: #e0e0e0;
-  background: rgba(224, 224, 224, 0.1);
-}
-
-body.dark .contact .btn-secondary:hover {
-  background: rgba(224, 224, 224, 0.2);
-  color: #ffffff;
-  border-color: #ffffff;
-  box-shadow: 0 10px 25px rgba(224, 224, 224, 0.3);
-  transform: translateY(-2px);
-}
-
-body.dark .contact .contact-features i {
-  color: #b0b0b0;
-}
-
-body.dark .contact .contact-text h2 {
-  color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-body.dark .contact .contact-text p {
-  color: #cccccc;
-  font-weight: 500;
-}
-
-body.dark .contact .contact-features li {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-body.dark .contact .contact-info .info-item i {
-  color: #b0b0b0;
-}
-
-body.dark .contact .contact-info .info-item p {
-  color: #cccccc;
-  font-weight: 500;
-}
-
-body.dark .contact .contact-info .info-item h3 {
-  color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* Ensure WCAG compliance */
-body.dark .contact .contact-text p,
-body.dark .contact .contact-features li,
-body.dark .contact .contact-info .info-item p {
-  color: #e0e0e0; /* 7.12:1 contrast on #0d47a1 */
-}
-
-body.dark .contact .contact-info .info-item h3 {
-  color: #ffffff; /* 10.8:1 contrast on #0d47a1 */
+body.dark .social-links a {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.2);
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
-  .contact-content {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
   
-  .contact-text h2 {
-    font-size: 2.2rem;
+  .contact-form {
+    padding: 2rem;
   }
   
-  .contact-text p {
-    font-size: 1.15rem;
-  }
-  
-  .contact-features li {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .contact {
-    padding: 4rem 0;
-  }
-  
-  .container {
-    padding: 0 1.5rem;
-  }
-  
-  .contact-text h2 {
-    font-size: 2rem;
-  }
-  
-  .contact-buttons {
-    gap: 0.8rem;
-  }
-  
-  .btn {
-    padding: 0.9rem 1.8rem;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  .contact {
-    padding: 3rem 0;
-  }
-  
-  .contact-text h2 {
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  .contact-text p {
-    font-size: 1.1rem;
-    margin-bottom: 1.8rem;
-    line-height: 1.6;
-  }
-  
-  .contact-features {
-    margin-bottom: 1.8rem;
-  }
-  
-  .contact-features li {
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .contact-buttons {
+  .footer-bottom-content {
     flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
+  
+  .social-links {
     gap: 1rem;
   }
   
-  .btn {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-    padding: 0.9rem 1.5rem;
-    font-size: 0.95rem;
-  }
-  
-  .contact-info .info-item {
-    margin-bottom: 1.5rem;
-  }
-  
-  .contact-info .info-item i {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-  }
-  
-  .contact-info .info-item h3 {
-    font-size: 1.2rem;
-  }
-  
-  .contact-info .info-item p {
-    font-size: 1rem;
+  .social-links a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .contact {
-    padding: 2.5rem 0;
+  footer {
+    padding: 3rem 1rem 1rem;
   }
   
-  .container {
-    padding: 0 1rem;
+  .contact-form {
+    padding: 1.5rem;
   }
   
-  .contact-text h2 {
-    font-size: 1.8rem;
+  .contact-form h3 {
+    font-size: 1.5rem;
   }
   
-  .contact-text p {
-    font-size: 1rem;
+  .social-section h3 {
+    font-size: 1.5rem;
   }
   
-  .contact-features li {
-    font-size: 0.95rem;
+  .footer-links {
+    gap: 1rem;
   }
   
-  .btn {
-    max-width: 250px;
-    padding: 0.8rem 1.2rem;
-    font-size: 0.9rem;
-  }
-  
-  .contact-info .info-item {
-    margin-bottom: 1.2rem;
-  }
-  
-  .contact-info .info-item i {
-    font-size: 1.3rem;
-  }
-  
-  .contact-info .info-item h3 {
-    font-size: 1.1rem;
-  }
-  
-  .contact-info .info-item p {
-    font-size: 0.95rem;
+  .footer-links a {
+    font-size: 0.8rem;
   }
 }
 </style>

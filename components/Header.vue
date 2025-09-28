@@ -1,22 +1,45 @@
+
 <template>
-  <header class="header" :class="{ dark: isDarkMode }">
-    <div class="header-background"></div>
-    <div class="container">
+  <header id="header" :class="{ scrolled: isScrolled, dark: isDarkMode }">
+    <div class="animated-bg"></div>
+    <div class="header-container">
       <div class="logo" @click="goToHomepage">
-        <img 
-          :src="isDarkMode ? '/images/nexus-logo-dark.svg' : '/images/nexus-logo-light.svg'" 
-          :alt="language === 'tr' ? 'SciWriteNexus Logo' : 'SciWriteNexus Logo'"
+        <img
+          :src="isDarkMode ? '/images/nexus-logo-dark.svg' : '/images/nexus-logo-light.svg'"
+          alt="Science-Writing Nexus"
           class="logo-image"
-        />
+        >
       </div>
-      <nav class="main-nav">
+      <div class="menu-toggle" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="nav-menu">
         <ul>
-          <li v-for="(item, index) in navItems" :key="item.id" :style="{ animationDelay: `${index * 0.1}s` }">
-            <a :href="item.href" class="nav-link" @click="scrollToSection(item.sectionId)">
-              <span v-if="language === 'tr'">{{ item.text.tr }}</span>
-              <span v-else>{{ item.text.en }}</span>
-            </a>
+          <li><a href="#home" @click="scrollToSection('home')">{{ getNavText('home') }}</a></li>
+          <li class="dropdown">
+            <a href="#consultancy">{{ getNavText('consultancy') }} ▼</a>
+            <div class="dropdown-content">
+              <a href="#english-editing" @click="scrollToSection('consultancy')">{{ getDropdownText('english-editing') }}</a>
+              <a href="#article-writing" @click="scrollToSection('consultancy')">{{ getDropdownText('article-writing') }}</a>
+              <a href="#thesis-writing" @click="scrollToSection('consultancy')">{{ getDropdownText('thesis-writing') }}</a>
+              <a href="#peer-review" @click="scrollToSection('consultancy')">{{ getDropdownText('peer-review') }}</a>
+              <a href="#revision-support" @click="scrollToSection('consultancy')">{{ getDropdownText('revision-support') }}</a>
+              <a href="#publication-support" @click="scrollToSection('consultancy')">{{ getDropdownText('publication-support') }}</a>
+              <a href="#project-writing" @click="scrollToSection('consultancy')">{{ getDropdownText('project-writing') }}</a>
+              <a href="#data-analysis" @click="scrollToSection('consultancy')">{{ getDropdownText('data-analysis') }}</a>
+            </div>
           </li>
+          <li class="dropdown">
+            <a href="#training">{{ getNavText('training') }} ▼</a>
+            <div class="dropdown-content">
+              <a href="#individual-training" @click="scrollToSection('training')">{{ getDropdownText('individual-training') }}</a>
+              <a href="#group-training" @click="scrollToSection('training')">{{ getDropdownText('group-training') }}</a>
+            </div>
+          </li>
+          <li><a href="#about" @click="scrollToSection('about')">{{ getNavText('about') }}</a></li>
+          <li><a href="#contact" class="nav-cta" @click="scrollToSection('contact')">{{ getNavText('contact') }}</a></li>
         </ul>
       </nav>
       <div class="header-controls">
@@ -37,18 +60,13 @@
             {{ isDarkMode ? '☀️' : '🌙' }}
           </button>
         </div>
-        
-        <div class="evaluation-btn">
-          <button class="btn btn-primary" v-if="language === 'tr'" @click="scrollToSection('contact')">Ücretsiz Değerlendirme</button>
-          <button class="btn btn-primary" v-else @click="scrollToSection('contact')">Free Evaluation</button>
-        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { useTheme } from '../composables/useTheme';
 
 export default {
@@ -61,174 +79,330 @@ export default {
   },
   setup() {
     const { isDarkMode, toggleTheme, updateBodyTheme } = useTheme();
+    const isScrolled = ref(false);
+    
+    const handleScroll = () => {
+      isScrolled.value = window.scrollY > 50;
+    };
+    
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll);
+      updateBodyTheme();
+    });
+    
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll);
+    });
     
     return {
       isDarkMode,
       toggleTheme,
-      updateBodyTheme
+      updateBodyTheme,
+      isScrolled
     };
   },
   data() {
     return {
-      navItems: [
-        {
-          id: 1,
-          text: {
-            tr: 'Hizmetler',
-            en: 'Services'
-          },
-          href: '#services',
-          sectionId: 'services'
+      navItems: {
+        home: {
+          tr: 'Ana Sayfa',
+          en: 'Home'
         },
-        {
-          id: 2,
-          text: {
-            tr: 'Süreç',
-            en: 'Process'
-          },
-          href: '#process',
-          sectionId: 'process'
+        consultancy: {
+          tr: 'Danışmanlık',
+          en: 'Consultancy'
         },
-        {
-          id: 3,
-          text: {
-            tr: 'Blog',
-            en: 'Blog'
-          },
-          href: `/${this.language}/blog`,
-          sectionId: 'blog'
+        training: {
+          tr: 'Eğitim',
+          en: 'Training'
         },
-        {
-          id: 4,
-          text: {
-            tr: 'İletişim',
-            en: 'Contact'
-          },
-          href: '#contact',
-          sectionId: 'contact'
+        about: {
+          tr: 'Hakkımızda',
+          en: 'About'
+        },
+        contact: {
+          tr: 'Ücretsiz Değerlendirme',
+          en: 'Get Free Evaluation'
         }
-      ]
+      },
+      dropdownItems: {
+        'english-editing': {
+          tr: 'Akademik İngilizce Düzenleme',
+          en: 'Academic English Editing'
+        },
+        'article-writing': {
+          tr: 'Makale Yazımı ve Düzenleme',
+          en: 'Article Writing and Editing'
+        },
+        'thesis-writing': {
+          tr: 'Tez Yazımı ve Düzenleme',
+          en: 'Thesis Writing and Editing'
+        },
+        'peer-review': {
+          tr: 'Ön Gönderim Hakem Değerlendirmesi',
+          en: 'Pre-submission Peer Review'
+        },
+        'revision-support': {
+          tr: 'Revizyon Destek Hizmetleri',
+          en: 'Revision Support Services'
+        },
+        'publication-support': {
+          tr: 'Yayın Süreci Desteği',
+          en: 'Publication Process Support'
+        },
+        'project-writing': {
+          tr: 'Proje Yazımı ve Düzenleme',
+          en: 'Project Writing and Editing'
+        },
+        'data-analysis': {
+          tr: 'Veri Analizi ve Görselleştirme',
+          en: 'Data Analysis and Visualization'
+        },
+        'individual-training': {
+          tr: 'Bireysel Eğitim',
+          en: 'Individual Training'
+        },
+        'group-training': {
+          tr: 'Grup Eğitimi',
+          en: 'Group Training'
+        }
+      }
     }
   },
   methods: {
+    getNavText(key) {
+      return this.language === 'tr' ? this.navItems[key].tr : this.navItems[key].en;
+    },
+    getDropdownText(key) {
+      return this.language === 'tr' ? this.dropdownItems[key].tr : this.dropdownItems[key].en;
+    },
     toggleLanguage() {
       const newLang = this.language === 'tr' ? 'en' : 'tr';
       this.$router.push(`/${newLang}`);
     },
     scrollToSection(sectionId) {
       if (sectionId === 'blog') {
-        // Navigate to blog page based on current language
         this.$router.push(`/${this.language}/blog`);
         return;
       }
       
       const element = document.getElementById(sectionId);
       if (element) {
-        const offsetTop = element.offsetTop - 80; // Adjust for header height
+        const offsetTop = element.offsetTop - 80;
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
         });
+        // Close mobile menu if open
+        const nav = document.getElementById('nav-menu');
+        nav.classList.remove('active');
       }
     },
     goToHomepage() {
       this.$router.push(`/${this.language}`);
+    },
+    toggleMenu() {
+      const nav = document.getElementById('nav-menu');
+      nav.classList.toggle('active');
     }
   }
 }
 </script>
 
 <style scoped>
-.header {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  box-shadow: 0 2px 30px rgba(0,0,0,0.1);
-  padding: 1rem 2rem;
-  position: sticky;
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 1000;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-  margin: 0;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.header-background {
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.animated-bg {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9 42.314 0h1.414zM16.686 0L10.2 6.485 11.616 7.9 17.686 0h-1.414zm24.97 0l6.486 6.485-1.414 1.415-7.9-7.9h2.828zM22.344 0L15.86 6.485l1.414 1.415 7.9-7.9h-2.83zm17.657 0L27.8 13.857l1.414 1.414 13.343-13.343h-2.556zM20 0L6.657 13.343 8.07 14.757 21.414 1.414 20 0zm12.686 0l-3.343 3.343-1.414-1.414L31.1 0h1.586zM27.314 0l3.343 3.343 1.414-1.414L28.9 0h-1.586zm-4.97 0l-2.343 2.343-1.414-1.414L20.9 0h1.414zM37.656 0l2.343 2.343 1.414-1.414L39.1 0h-1.414zM34.97 0l-1.343 1.343-1.414-1.414L33.556 0h1.414zM25.03 0l1.343 1.343 1.414-1.414L26.444 0H25.03z' fill='%233498db' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-  opacity: 0.4;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.05;
 }
 
-.container {
-  max-width: 1400px;
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.header-container {
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
-  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .logo-image {
-  height: 100px;
+  height: 80px;
   width: auto;
+  object-fit: contain;
   transition: all 0.3s ease;
 }
 
-.tagline {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #7f8c8d;
-  transition: color 0.3s;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  line-height: 1.3;
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
-.main-nav ul {
-  display: flex;
+nav ul {
   list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
 }
 
-.main-nav li {
-  margin: 0 1.2rem;
-}
-
-.nav-link {
+nav a {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--text-dark);
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   position: relative;
-  font-size: 1.05rem;
-  letter-spacing: 0.1px;
-  padding: 0.5rem 0;
 }
 
-.nav-link:after {
+nav a::after {
   content: '';
   position: absolute;
+  bottom: -5px;
+  left: 0;
   width: 0;
   height: 2px;
-  bottom: -5px;
-  left: 50%;
-  background: linear-gradient(90deg, #3498db, #2c3e50);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: translateX(-50%);
+  background: var(--secondary-color);
+  transition: width 0.3s;
 }
 
-.nav-link:hover:after {
+nav a:hover::after {
   width: 100%;
 }
 
-.nav-link:hover {
-  color: #3498db;
+.nav-cta {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: white !important;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.nav-cta::after {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  z-index: 1;
+  top: 100%;
+  left: -50px;
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+}
+
+/* Fix for dropdown gap - create invisible area to maintain hover state */
+.dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -50px;
+  width: 320px;
+  height: 15px;
+  background: transparent;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInDown 0.3s ease;
+}
+
+.dropdown:hover::after {
+  display: block;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--text-dark);
+  transition: all 0.3s;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-content a:hover {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+  color: var(--primary-color);
+  border-left-color: var(--secondary-color);
+  padding-left: 2rem;
 }
 
 .header-controls {
@@ -246,8 +420,8 @@ export default {
 .control-button {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
-  color: #2c3e50;
-  border: 1px solid rgba(44, 62, 80, 0.15);
+  color: var(--text-dark);
+  border: 1px solid rgba(30, 41, 59, 0.15);
   padding: 0.7rem 1.2rem;
   border-radius: 30px;
   cursor: pointer;
@@ -261,7 +435,6 @@ export default {
   justify-content: center;
   height: 42px;
   letter-spacing: 0.1px;
-  transform: translateZ(0);
 }
 
 .control-button:hover {
@@ -270,232 +443,137 @@ export default {
   transform: translateY(-3px) scale(1.05);
 }
 
-.evaluation-btn .btn-primary {
-  background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
-  color: white;
-  border: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: 30px;
+.menu-toggle {
+  display: none;
+  flex-direction: column;
   cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-  font-size: 1rem;
-  letter-spacing: 0.2px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
 }
 
-.evaluation-btn .btn-primary:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 3px 0;
+  transition: all 0.3s;
 }
 
 /* Dark mode styles */
-.dark {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+header.dark {
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }
 
-.dark .header-background {
-  opacity: 0.15;
+header.dark.scrolled {
+  background: rgba(15, 23, 42, 0.98);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.9);
 }
 
-
-.dark .tagline {
-  color: #e3f2fd;
-  font-weight: 500;
+header.dark nav a {
+  color: var(--dark-text-primary);
 }
 
-.dark .nav-link {
-  color: #ffffff;
-  font-weight: 600;
+header.dark .dropdown-content {
+  background: var(--dark-bg-surface);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
-.dark .nav-link:hover {
-  color: #e0e0e0;
-  transform: translateY(-1px);
+header.dark .dropdown-content a {
+  color: var(--dark-text-primary);
 }
 
-.dark .nav-link:after {
-  background: linear-gradient(90deg, #e0e0e0, #cccccc);
+header.dark .dropdown-content a:hover {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), transparent);
+  color: var(--dark-accent);
 }
 
-.dark .control-button {
+header.dark .control-button {
   background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  color: var(--dark-text-primary);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
 }
 
-.dark .control-button:hover {
+header.dark .control-button:hover {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-  color: #ffffff;
-  transform: translateY(-2px);
+  color: var(--dark-text-primary);
 }
 
-.dark .evaluation-btn .btn-primary {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.dark .evaluation-btn .btn-primary:hover {
-  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
-  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Animations */
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.main-nav li {
-  animation: slideInDown 0.6s ease both;
-}
-
-/* Responsive design */
-@media (max-width: 1200px) {
-  .header {
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
     padding: 1rem;
   }
   
-  .main-nav li {
-    margin: 0 0.8rem;
+  .menu-toggle {
+    display: flex;
   }
   
-  .logo-image {
-    height: 55px;
+  nav {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background: white;
+    transition: left 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  nav.active {
+    left: 0;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .dropdown-content {
+    position: static;
+    display: block;
+    box-shadow: none;
+    margin-top: 0;
+    opacity: 1;
+    transform: none;
+    background: var(--light-bg);
+    min-width: 100%;
+  }
+  
+  header.dark nav {
+    background: var(--dark-bg-surface);
+  }
+  
+  header.dark .dropdown-content {
+    background: var(--dark-bg);
   }
 }
 
-@media (max-width: 992px) {
-  .main-nav li {
-    margin: 0 0.6rem;
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.8rem;
   }
   
-  .nav-link {
-    font-size: 0.95rem;
+  .logo {
+    font-size: 1.3rem;
   }
   
-}
-
-@media (max-width: 992px) {
-  .main-nav {
-    display: none;
-  }
-  
-  .header-controls {
-    gap: 0.8rem;
+  .logo svg {
+    width: 40px;
+    height: 40px;
   }
   
   .control-button {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    height: 36px;
     min-width: 35px;
   }
   
-  .evaluation-btn .btn-primary {
+  .nav-cta {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
 }
-
-@media (max-width: 768px) {
-  .header {
-    padding: 0.8rem 1rem;
-    position: relative;
-  }
-  
-  .container {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  .logo {
-    text-align: left;
-    flex: 1;
-  }
-  
-  .logo-image {
-    height: 50px;
-  }
-  
-  .tagline {
-    font-size: 0.8rem;
-    display: none;
-  }
-  
-  .header-controls {
-    flex-direction: row;
-    gap: 0.5rem;
-    justify-content: flex-end;
-  }
-  
-  .control-buttons {
-    margin-bottom: 0;
-    gap: 0.3rem;
-  }
-  
-  .control-button {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.8rem;
-    height: 36px;
-    min-width: 32px;
-  }
-  
-  .evaluation-btn .btn-primary {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    height: 36px;
-    white-space: nowrap;
-  }
-  
-  .theme-button {
-    font-size: 1rem;
-  }
-  
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 0.6rem 0.8rem;
-  }
-  
-  .logo-image {
-    height: 45px;
-  }
-  
-  .control-button {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.75rem;
-    height: 32px;
-  }
-  
-  .evaluation-btn .btn-primary {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    height: 32px;
-  }
-  
-  .theme-button {
-    font-size: 0.9rem;
-  }
-}
 </style>
+}

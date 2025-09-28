@@ -1,29 +1,19 @@
 <template>
-  <section class="process" id="process" :class="{ dark: isDarkMode }">
-    <div class="container">
-      <div class="section-header">
-        <h2 v-if="language === 'tr'">Nasıl Çalışıyoruz?</h2>
-        <h2 v-else>How We Work?</h2>
-        <p v-if="language === 'tr'">4 adımda sistematik akademik gelişim süreci</p>
-        <p v-else>Systematic academic development process in 4 steps</p>
-      </div>
-      <div class="process-steps">
-        <div class="process-step" v-for="step in steps" :key="step.id" :class="{ dark: isDarkMode }">
-          <div class="step-icon">
-            <i :class="step.icon"></i>
+  <section class="training-section" id="training">
+    <div class="training-container">
+      <h2 class="section-title">{{ getSectionTitle() }}</h2>
+      <p class="section-subtitle">{{ getSectionSubtitle() }}</p>
+      <div class="training-grid">
+        <div class="training-card" v-for="program in trainingPrograms" :key="program.id">
+          <div>
+            <h3><span class="icon">{{ program.icon }}</span>{{ getProgramTitle(program) }}</h3>
+            <p>{{ getProgramDescription(program) }}</p>
+            <ul class="training-list">
+              <li v-for="item in program.items" :key="item">{{ getTrainingItem(item) }}</li>
+            </ul>
           </div>
-          <h3 class="step-title">{{ getStepTitle(step) }}</h3>
-          <p class="step-description">{{ getStepDescription(step) }}</p>
-          <div class="step-duration">
-            <span v-if="language === 'tr'">Süre: </span>
-            <span v-else>Duration: </span>
-            {{ getStepDuration(step) }}
-          </div>
+          <a href="#contact" class="card-link" @click="scrollToSection('contact')">{{ getButtonText() }}</a>
         </div>
-      </div>
-      <div class="process-cta">
-        <button class="btn btn-primary" v-if="language === 'tr'" @click="scrollToSection('contact')">Sürecimizi Detaylı İnceleyin</button>
-        <button class="btn btn-primary" v-else @click="scrollToSection('contact')">Detailed Review of Our Process</button>
       </div>
     </div>
   </section>
@@ -36,96 +26,135 @@ export default {
     language: {
       type: String,
       default: 'tr'
-    },
-    isDarkMode: {
-      type: Boolean,
-      default: false
     }
   },
   data() {
     return {
-      steps: [
+      sectionContent: {
+        title: {
+          tr: 'Eğitim Programları',
+          en: 'Training Programs'
+        },
+        subtitle: {
+          tr: 'Akademik yazım ve araştırma becerilerinizi geliştirin',
+          en: 'Enhance your academic writing and research skills'
+        },
+        button: {
+          tr: 'Bilgi Talep Edin',
+          en: 'Request Information'
+        }
+      },
+      trainingPrograms: [
         {
           id: 1,
-          icon: 'fas fa-search',
+          icon: '👤',
           title: {
-            tr: 'İlk İnceleme ve Analiz',
-            en: 'Initial Review and Analysis'
+            tr: 'Bireysel Eğitim',
+            en: 'Individual Training'
           },
           description: {
-            tr: 'Projenizin kapsamını belirliyor, ihtiyaçlarınızı analiz ediyoruz. Size özel gelişim planı hazırlıyoruz.',
-            en: 'We determine the scope of your project and analyze your needs. We prepare a customized development plan for you.'
+            tr: 'Özel akademik ihtiyaçlarınıza ve kariyer hedeflerinize uyarlanmış bire bir eğitim seansları.',
+            en: 'Personalized one-on-one training sessions tailored to your specific academic needs and career goals.'
           },
-          duration: {
-            tr: '24-48 saat içinde',
-            en: 'Within 24-48 hours'
-          }
+          items: [
+            {
+              tr: 'Akademik Yazım Mentorluğu',
+              en: 'Academic Writing Mentorship'
+            },
+            {
+              tr: 'İstatistiksel Analiz Koçluğu',
+              en: 'Statistical Analysis Coaching'
+            },
+            {
+              tr: 'Yayın Stratejisi Geliştirme',
+              en: 'Publication Strategy Development'
+            },
+            {
+              tr: 'Tez Yazım Desteği',
+              en: 'Thesis Writing Support'
+            },
+            {
+              tr: 'Hibe Yazım Becerileri Geliştirme',
+              en: 'Grant Writing Skills Development'
+            },
+            {
+              tr: 'Hakem Yanıtı Eğitimi',
+              en: 'Peer Review Response Training'
+            },
+            {
+              tr: 'Araştırma Metodolojisi Geliştirme',
+              en: 'Research Methodology Enhancement'
+            }
+          ]
         },
         {
           id: 2,
-          icon: 'fas fa-calendar-alt',
+          icon: '👥',
           title: {
-            tr: 'Kişisel Gelişim Stratejisi',
-            en: 'Personal Development Strategy'
+            tr: 'Grup Eğitimi',
+            en: 'Group Training'
           },
           description: {
-            tr: 'Akademik hedeflerinize uygun detaylı çalışma planı oluşturuyoruz. Öncelik sıralaması ve zaman çizelgesi belirliyoruz.',
-            en: 'We create a detailed work plan suitable for your academic goals. We determine priority ranking and timeline.'
+            tr: 'Araştırma ekipleri, bölümler ve akademik kurumlar için tasarlanmış interaktif atölyeler ve kurslar.',
+            en: 'Interactive workshops and courses designed for research teams, departments, and academic institutions.'
           },
-          duration: {
-            tr: '2-3 iş günü',
-            en: '2-3 business days'
-          }
-        },
-        {
-          id: 3,
-          icon: 'fas fa-users',
-          title: {
-            tr: 'Aktif Geliştirme Süreci',
-            en: 'Active Development Process'
-          },
-          description: {
-            tr: 'Alanında uzman akademisyenlerle çalışarak, sistematik geliştirme sürecini yürütüyoruz. Sürekli geri bildirim sağlıyoruz.',
-            en: 'We carry out the systematic development process by working with academicians who are experts in their field. We provide continuous feedback.'
-          },
-          duration: {
-            tr: 'Proje kapsamına göre',
-            en: 'Depending on project scope'
-          }
-        },
-        {
-          id: 4,
-          icon: 'fas fa-flag-checkered',
-          title: {
-            tr: 'Son Kontrol ve Destek',
-            en: 'Final Check and Support'
-          },
-          description: {
-            tr: 'Tüm geliştirmeleri final kontrolden geçiriyoruz. Detaylı rapor hazırlıyoruz. 30 gün ücretsiz danışmanlık desteği sağlıyoruz.',
-            en: 'We put all developments through final control. We prepare a detailed report. We provide 30 days of free consulting support.'
-          },
-          duration: {
-            tr: 'Garanti: 30 gün sonrası destek',
-            en: 'Guarantee: Support after 30 days'
-          }
+          items: [
+            {
+              tr: 'Akademik Yazım Temelleri',
+              en: 'Academic Writing Fundamentals'
+            },
+            {
+              tr: 'İleri Araştırma Yöntemleri',
+              en: 'Advanced Research Methods'
+            },
+            {
+              tr: 'Yüksek Etkili Dergilerde Yayınlama',
+              en: 'Publishing in High-Impact Journals'
+            },
+            {
+              tr: 'SPSS/R/Python ile Veri Analizi',
+              en: 'Data Analysis with SPSS/R/Python'
+            },
+            {
+              tr: 'Sistematik Derleme Metodolojisi',
+              en: 'Systematic Review Methodology'
+            },
+            {
+              tr: 'Araştırma Etiği ve Dürüstlük',
+              en: 'Research Ethics and Integrity'
+            },
+            {
+              tr: 'Hakem Değerlendirme Sürecini Yönetme',
+              en: 'Handling Peer Review Process'
+            }
+          ]
         }
       ]
     }
   },
   methods: {
-    getStepTitle(step) {
-      return this.language === 'tr' ? step.title.tr : step.title.en;
+    getSectionTitle() {
+      return this.language === 'tr' ? this.sectionContent.title.tr : this.sectionContent.title.en;
     },
-    getStepDescription(step) {
-      return this.language === 'tr' ? step.description.tr : step.description.en;
+    getSectionSubtitle() {
+      return this.language === 'tr' ? this.sectionContent.subtitle.tr : this.sectionContent.subtitle.en;
     },
-    getStepDuration(step) {
-      return this.language === 'tr' ? step.duration.tr : step.duration.en;
+    getProgramTitle(program) {
+      return this.language === 'tr' ? program.title.tr : program.title.en;
+    },
+    getProgramDescription(program) {
+      return this.language === 'tr' ? program.description.tr : program.description.en;
+    },
+    getTrainingItem(item) {
+      return this.language === 'tr' ? item.tr : item.en;
+    },
+    getButtonText() {
+      return this.language === 'tr' ? this.sectionContent.button.tr : this.sectionContent.button.en;
     },
     scrollToSection(sectionId) {
       const element = document.getElementById(sectionId);
       if (element) {
-        const offsetTop = element.offsetTop - 80; // Adjust for header height
+        const offsetTop = element.offsetTop - 80;
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
@@ -137,308 +166,247 @@ export default {
 </script>
 
 <style scoped>
-.process {
+.training-section {
+  background: white;
   padding: 5rem 0;
-  background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
-  color: white;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.process::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.container {
-  max-width: 1200px;
+.training-container {
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.section-header {
+.section-title {
   text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-header h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
 }
 
-.section-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.process-step {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 2rem;
+.section-subtitle {
   text-align: center;
-  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.training-card {
+  background: linear-gradient(135deg, #f8fafc, white);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.training-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
+  transition: all 0.5s;
+}
+
+.training-card:hover::before {
+  top: -25%;
+  right: -25%;
+}
+
+.training-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.training-card h3 {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  display: flex;
   align-items: center;
+  position: relative;
 }
 
-.process-step:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+.training-card p {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  line-height: 1.8;
 }
 
-.step-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color: #3498db;
+.training-list {
+  list-style: none;
+  margin-bottom: 2rem;
 }
 
-.step-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.step-description {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-.step-duration {
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  background: rgba(52, 152, 219, 0.2);
-}
-
-.process-cta {
-  text-align: center;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
-  color: #1976d2;
-  border: 2px solid transparent;
-  padding: 1rem 2.2rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
+.training-list li {
+  padding: 1rem 0;
+  color: var(--text-dark);
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  padding-left: 2.5rem;
   transition: all 0.3s;
-  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.3);
-  letter-spacing: 0.1px;
-  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
 }
 
-.btn-primary:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(25, 118, 210, 0.4);
-  background: linear-gradient(135deg, #ffffff 0%, #bbdefb 100%);
+.training-list li:hover {
+  padding-left: 3rem;
+  color: var(--primary-color);
+}
+
+.training-list li:last-child {
+  border-bottom: none;
+}
+
+.training-list li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.card-link {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+  display: inline-block;
+  align-self: flex-start;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.card-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
 /* Dark mode styles */
-body.dark .process {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+body.dark .training-section {
+  background: var(--dark-bg);
 }
 
-body.dark .process::before {
-  opacity: 0.2;
+body.dark .section-title {
+  background: linear-gradient(135deg, var(--dark-primary), var(--dark-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-body.dark .process .process-step {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
+body.dark .section-subtitle {
+  color: var(--dark-text-secondary);
 }
 
-body.dark .process .process-step:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #e0e0e0;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-  transform: translateY(-5px);
+body.dark .training-card {
+  background: linear-gradient(135deg, var(--dark-bg-surface), var(--dark-bg));
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
-body.dark .process .step-icon {
-  color: #b0b0b0;
+body.dark .training-card:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-body.dark .process .step-duration {
-  background: rgba(224, 224, 224, 0.2);
-  color: #e0e0e0;
-  font-weight: 600;
+body.dark .training-card h3 {
+  color: var(--dark-primary);
 }
 
-body.dark .process .btn-primary {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-  color: #ffffff;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+body.dark .training-card p {
+  color: var(--dark-text-secondary);
 }
 
-body.dark .process .btn-primary:hover {
-  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+body.dark .training-list li {
+  color: var(--dark-text-primary);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Ensure text readability */
-body.dark .process .section-header h2,
-body.dark .process .section-header p,
-body.dark .process .step-title,
-body.dark .process .step-description {
-  color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+body.dark .training-list li:hover {
+  color: var(--dark-accent);
 }
 
-body.dark .process .step-description {
-  color: #cccccc;
+body.dark .training-list li:before {
+  color: var(--dark-accent);
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
-  .process-steps {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+@media (max-width: 768px) {
+  .training-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
-  .process-step {
-    padding: 1.5rem;
+  .training-card {
+    padding: 2rem;
   }
   
-  .step-icon {
-    font-size: 2.5rem;
-  }
-  
-  .step-title {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .process {
-    padding: 4rem 0;
-  }
-  
-  .section-header {
-    margin-bottom: 3rem;
-  }
-  
-  .section-header h2 {
+  .section-title {
     font-size: 2.2rem;
   }
   
-  .section-header p {
-    font-size: 1.15rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .process-steps {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .section-subtitle {
+    font-size: 1.1rem;
     margin-bottom: 3rem;
   }
   
-  .process {
-    padding: 3rem 0;
+  .training-list li {
+    padding-left: 2rem;
   }
   
-  .container {
-    padding: 0 1.5rem;
-  }
-  
-  .section-header h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .section-header p {
-    font-size: 1.1rem;
-  }
-  
-  .process-step {
-    padding: 1.5rem;
-  }
-  
-  .step-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .step-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .step-description {
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  .btn-primary {
-    padding: 0.9rem 1.8rem;
-    font-size: 1rem;
+  .training-list li:hover {
+    padding-left: 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .process {
-    padding: 2.5rem 0;
+  .training-section {
+    padding: 3rem 0;
   }
   
-  .container {
+  .training-container {
     padding: 0 1rem;
   }
   
-  .section-header h2 {
-    font-size: 1.8rem;
+  .training-card {
+    padding: 1.5rem;
   }
   
-  .section-header p {
-    font-size: 1rem;
-  }
-  
-  .process-step {
-    padding: 1.2rem;
-  }
-  
-  .step-icon {
+  .section-title {
     font-size: 2rem;
   }
   
-  .step-title {
-    font-size: 1.1rem;
+  .training-card h3 {
+    font-size: 1.3rem;
   }
   
-  .step-description {
+  .training-list li {
     font-size: 0.9rem;
+    padding-left: 1.5rem;
   }
   
-  .step-duration {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-  }
-  
-  .btn-primary {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+  .training-list li:before {
+    font-size: 1rem;
   }
 }
 </style>

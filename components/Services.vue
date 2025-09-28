@@ -1,28 +1,17 @@
 <template>
-  <section class="services" id="services" :class="{ dark: isDarkMode }">
-    <div class="container">
-      <div class="section-header">
-        <h2 v-if="language === 'tr'">Akademik Kariyerinizin Her Aşamasında Yanınızda</h2>
-        <h2 v-else>By Your Side at Every Stage of Your Academic Career</h2>
-        <p v-if="language === 'tr'">
-          Makale yazımından tez hazırlığa, proje başvurularından hakem cevaplarına kadar tüm akademik yazım süreçlerinizde profesyonel destek
-        </p>
-        <p v-else>
-          Professional support for all academic writing processes, from article writing to thesis preparation, from project applications to referee responses
-        </p>
-      </div>
-      <div class="service-cards">
-        <div class="service-card" v-for="service in services" :key="service.id">
-          <div class="service-icon">
-            <i :class="service.icon"></i>
-          </div>
-          <h3 class="service-title">{{ getServiceTitle(service) }}</h3>
-          <p class="service-description">{{ getServiceDescription(service) }}</p>
-          <ul class="service-subitems">
-            <li v-for="subitem in service.subitems" :key="subitem">{{ getSubitemText(subitem) }}</li>
+  <section class="consultancy-section" id="consultancy">
+    <h2 class="section-title">{{ getSectionTitle() }}</h2>
+    <p class="section-subtitle">{{ getSectionSubtitle() }}</p>
+    <div class="services-grid">
+      <div class="service-card" v-for="service in services" :key="service.id" :class="{ featured: service.featured }">
+        <div>
+          <h3><span class="icon">{{ service.icon }}</span>{{ getServiceTitle(service) }}</h3>
+          <p>{{ getServiceDescription(service) }}</p>
+          <ul class="service-features">
+            <li v-for="feature in service.features" :key="feature">{{ getFeatureText(feature) }}</li>
           </ul>
-          <button class="btn btn-secondary" @click="scrollToSection('contact')">{{ getButtonText() }}</button>
         </div>
+        <a href="#contact" class="card-link" @click="scrollToSection('contact')">{{ getButtonText() }}</a>
       </div>
     </div>
   </section>
@@ -35,155 +24,275 @@ export default {
     language: {
       type: String,
       default: 'tr'
-    },
-    isDarkMode: {
-      type: Boolean,
-      default: false
     }
   },
   data() {
     return {
+      sectionContent: {
+        title: {
+          tr: 'Danışmanlık Hizmetlerimiz',
+          en: 'Our Consultancy Services'
+        },
+        subtitle: {
+          tr: 'Araştırma ihtiyaçlarınıza özel kapsamlı akademik destek',
+          en: 'Comprehensive academic support tailored to your research needs'
+        },
+        button: {
+          tr: 'Ücretsiz Değerlendirme Alın',
+          en: 'Get Free Evaluation'
+        }
+      },
       services: [
         {
           id: 1,
-          icon: 'fas fa-pen-alt',
+          icon: '🌐',
           title: {
-            tr: 'Kapsamlı Akademik Yazım Danışmanlığı',
-            en: 'Comprehensive Academic Writing Consultancy'
+            tr: 'Akademik İngilizce Düzenleme',
+            en: 'Academic English Editing'
           },
           description: {
-            tr: 'Mevcut metinlerinizi akademik standartlara uygun şekilde geliştiriyoruz. Makale, tez, proje başvurusu, rapor - tüm akademik yazım türlerinizde profesyonel destek sağlıyoruz.',
-            en: 'We develop your existing texts in accordance with academic standards. We provide professional support for all your academic writing types - articles, theses, project proposals, reports.'
+            tr: 'Profesyonel İngilizce dil düzenleme ve proofreading hizmetleri, uluslararası yayınlar için netlik, tutarlılık ve akademik stil uyumu sağlar.',
+            en: 'Professional English language editing and proofreading services ensuring clarity, coherence, and academic style compliance for international publications.'
           },
-          subitems: [
+          features: [
             {
-              tr: 'Q1-Q4 dergi makalesi geliştirme',
-              en: 'Q1-Q4 journal article development'
+              tr: 'Anadil konuşmacı kalitesinde geliştirme',
+              en: 'Native-speaker quality enhancement'
             },
             {
-              tr: 'Tez yazımı danışmanlığı (YL/DR)',
-              en: 'Thesis writing consultancy (MA/PhD)'
+              tr: 'Dilbilgisi ve sözdizimi mükemmelleştirme',
+              en: 'Grammar and syntax perfection'
             },
             {
-              tr: 'Araştırma projesi ve hibe başvuruları',
-              en: 'Research project and grant applications'
-            },
-            {
-              tr: 'Akademik rapor düzenleme',
-              en: 'Academic report editing'
+              tr: 'Akademik terminoloji optimizasyonu',
+              en: 'Academic terminology optimization'
             }
-          ]
+          ],
+          featured: false
         },
         {
           id: 2,
-          icon: 'fas fa-chart-bar',
+          icon: '📝',
           title: {
-            tr: 'Veri Analizi ve Bilimsel Raporlama Danışmanlığı',
-            en: 'Data Analysis and Scientific Reporting Consultancy'
+            tr: 'Makale Yazımı ve Düzenleme',
+            en: 'Article Writing and Editing'
           },
           description: {
-            tr: 'Araştırma verilerinizin analizi, yorumlanması ve raporlanması süreçlerinde kapsamlı destek sağlıyoruz. İstatistiksel analizlerinizi güçlendiriyor, bulgularınızı etkili şekilde görselleştiriyoruz.',
-            en: 'We provide comprehensive support in the analysis, interpretation and reporting of your research data. We strengthen your statistical analyses and effectively visualize your findings.'
+            tr: 'Yapı geliştirmeden son düzenlemeye kadar araştırma makaleleri için kapsamlı destek, çalışmanızın yüksek etkili dergi standartlarını karşılamasını sağlar.',
+            en: 'Comprehensive support for research articles from structure development to final editing, ensuring your work meets high-impact journal standards.'
           },
-          subitems: [
+          features: [
             {
-              tr: 'İstatistiksel analiz danışmanlığı',
-              en: 'Statistical analysis consultancy'
+              tr: 'IMRAD yapısı optimizasyonu',
+              en: 'IMRAD structure optimization'
             },
             {
-              tr: 'Veri görselleştirme ve grafik tasarımı',
-              en: 'Data visualization and chart design'
+              tr: 'Kritik analiz geliştirme',
+              en: 'Critical analysis enhancement'
             },
             {
-              tr: 'Bulgular bölümü raporlama',
-              en: 'Findings section reporting'
-            },
-            {
-              tr: 'Meta-analiz ve sistematik derleme',
-              en: 'Meta-analysis and systematic review'
+              tr: 'Referans formatlama',
+              en: 'Reference formatting'
             }
-          ]
+          ],
+          featured: false
         },
         {
           id: 3,
-          icon: 'fas fa-globe',
+          icon: '📖',
           title: {
-            tr: 'İngilizce Akademik Yazım Beceri Geliştirme',
-            en: 'English Academic Writing Skills Development'
+            tr: 'Tez Yazımı ve Düzenleme',
+            en: 'Thesis Writing and Editing'
           },
           description: {
-            tr: 'Akademik İngilizce yazım becerilerinizi profesyonel düzeye çıkarıyoruz. Bilimsel terminoloji ve akademik yazım konvansiyonlarında uzmanlaşmanızı sağlıyoruz.',
-            en: 'We take your academic English writing skills to a professional level. We help you specialize in scientific terminology and academic writing conventions.'
+            tr: 'Yüksek lisans ve doktora tezleri için uzman rehberlik. Öneriden savunmaya kadar tam destek, akademik mükemmelliği garanti eder.',
+            en: 'Expert guidance for master\'s and doctoral theses. Complete support from proposal to defense, ensuring academic excellence.'
           },
-          subitems: [
+          features: [
             {
-              tr: 'Bilimsel İngilizce eğitimi',
-              en: 'Scientific English training'
+              tr: 'Bölüm bazlı geliştirme',
+              en: 'Chapter-by-chapter development'
             },
             {
-              tr: 'Akademik terminoloji geliştirme',
-              en: 'Academic terminology development'
+              tr: 'Metodoloji iyileştirme',
+              en: 'Methodology refinement'
             },
             {
-              tr: 'Sunum ve poster hazırlığı',
-              en: 'Presentation and poster preparation'
-            },
-            {
-              tr: 'Bireysel koçluk programları',
-              en: 'Individual coaching programs'
+              tr: 'Savunma hazırlık desteği',
+              en: 'Defense preparation support'
             }
-          ]
+          ],
+          featured: false
         },
         {
           id: 4,
-          icon: 'fas fa-sync-alt',
+          icon: '🔍',
           title: {
-            tr: 'Yayın Süreci ve Hakem Değerlendirme Danışmanlığı',
-            en: 'Publication Process and Referee Evaluation Consultancy'
+            tr: 'Ön Gönderim Hakem Değerlendirmesi',
+            en: 'Pre-submission Peer Review'
           },
           description: {
-            tr: 'Yayın sürecinin her aşamasında rehberlik sağlıyoruz. Dergi seçiminden hakem cevaplarına, revizyon süreçlerinden nihai kabule kadar tüm aşamalarda stratejik destek sunuyoruz.',
-            en: 'We provide guidance at every stage of the publication process. We offer strategic support from journal selection to referee responses, revision processes to final acceptance.'
+            tr: 'Dergi gönderimi öncesi profesyonel hakem değerlendirmesi. Potansiyel zayıflıkları belirleyin ve ele alın, makalenizin yayına hazır olmasını sağlayın.',
+            en: 'Professional peer review evaluation before journal submission. Identify and address potential weaknesses, ensuring your manuscript is publication-ready.'
           },
-          subitems: [
+          features: [
             {
-              tr: 'Hakem yorumlarına yanıt hazırlama',
-              en: 'Preparing responses to referee comments'
+              tr: 'Kapsamlı makale değerlendirmesi',
+              en: 'Comprehensive manuscript evaluation'
             },
             {
-              tr: 'Dergi seçimi ve editör mektubu',
-              en: 'Journal selection and editor letter'
+              tr: 'Detaylı hakem tarzı geri bildirim',
+              en: 'Detailed reviewer-style feedback'
             },
             {
-              tr: 'Revizyon süreçlerinde danışmanlık',
-              en: 'Consultancy in revision processes'
+              tr: 'Kritik zayıflık tanımlama',
+              en: 'Critical weakness identification'
             },
             {
-              tr: 'Yayın stratejisi geliştirme',
-              en: 'Publication strategy development'
+              tr: 'İyileştirme önerileri',
+              en: 'Improvement recommendations'
             }
-          ]
+          ],
+          featured: true
+        },
+        {
+          id: 5,
+          icon: '✏️',
+          title: {
+            tr: 'Revizyon Destek Hizmetleri',
+            en: 'Revision Support Services'
+          },
+          description: {
+            tr: 'Büyük ve küçük revizyonlarda uzman yardımı. Hakem yorumlarını etkili şekilde yönetin ve kabul şansınızı artırın.',
+            en: 'Expert assistance with major and minor revisions. Navigate referee comments effectively and increase your chances of acceptance.'
+          },
+          features: [
+            {
+              tr: 'Hakem yorumu yorumlama',
+              en: 'Referee comment interpretation'
+            },
+            {
+              tr: 'Yanıt mektubu hazırlama',
+              en: 'Response letter preparation'
+            },
+            {
+              tr: 'Büyük revizyon yeniden yapılandırma',
+              en: 'Major revision restructuring'
+            },
+            {
+              tr: 'Nokta bazlı yanıt rehberliği',
+              en: 'Point-by-point response guidance'
+            }
+          ],
+          featured: true
+        },
+        {
+          id: 6,
+          icon: '📄',
+          title: {
+            tr: 'Yayın Süreci Desteği',
+            en: 'Publication Process Support'
+          },
+          description: {
+            tr: 'Dergi seçiminden gönderim hazırlığına ve revizyon yönetimine kadar tüm yayın yolculuğunda stratejik rehberlik.',
+            en: 'Strategic guidance through the entire publication journey including journal selection, submission preparation, and revision management.'
+          },
+          features: [
+            {
+              tr: 'Hedef dergi seçimi',
+              en: 'Target journal selection'
+            },
+            {
+              tr: 'Kapak mektubu hazırlama',
+              en: 'Cover letter preparation'
+            },
+            {
+              tr: 'Gönderim sistemi navigasyonu',
+              en: 'Submission system navigation'
+            }
+          ],
+          featured: false
+        },
+        {
+          id: 7,
+          icon: '📋',
+          title: {
+            tr: 'Proje Yazımı ve Düzenleme',
+            en: 'Project Writing and Editing'
+          },
+          description: {
+            tr: 'Hibe önerileri, araştırma projeleri ve fon başvuruları için uzman yardımı, onay şansınızı maksimize eder.',
+            en: 'Expert assistance with grant proposals, research projects, and funding applications to maximize your approval chances.'
+          },
+          features: [
+            {
+              tr: 'Hibe önerisi geliştirme',
+              en: 'Grant proposal development'
+            },
+            {
+              tr: 'Bütçe gerekçelendirme',
+              en: 'Budget justification'
+            },
+            {
+              tr: 'Etki beyanı oluşturma',
+              en: 'Impact statement creation'
+            }
+          ],
+          featured: false
+        },
+        {
+          id: 8,
+          icon: '📊',
+          title: {
+            tr: 'Veri Analizi ve Görselleştirme',
+            en: 'Data Analysis and Visualization'
+          },
+          description: {
+            tr: 'İleri istatistiksel analiz, veri görselleştirme ve yorumlama hizmetleri, araştırmanız için yayına hazır çıktılar oluşturur.',
+            en: 'Advanced statistical analysis, data visualization, and interpretation services creating publication-ready outputs for your research.'
+          },
+          features: [
+            {
+              tr: 'İstatistiksel test seçimi',
+              en: 'Statistical test selection'
+            },
+            {
+              tr: 'Yayın kalitesinde şekiller',
+              en: 'Publication-quality figures'
+            },
+            {
+              tr: 'Sonuç yorumlama',
+              en: 'Results interpretation'
+            }
+          ],
+          featured: false
         }
       ]
     }
   },
   methods: {
+    getSectionTitle() {
+      return this.language === 'tr' ? this.sectionContent.title.tr : this.sectionContent.title.en;
+    },
+    getSectionSubtitle() {
+      return this.language === 'tr' ? this.sectionContent.subtitle.tr : this.sectionContent.subtitle.en;
+    },
     getServiceTitle(service) {
       return this.language === 'tr' ? service.title.tr : service.title.en;
     },
     getServiceDescription(service) {
       return this.language === 'tr' ? service.description.tr : service.description.en;
     },
-    getSubitemText(subitem) {
-      return this.language === 'tr' ? subitem.tr : subitem.en;
+    getFeatureText(feature) {
+      return this.language === 'tr' ? feature.tr : feature.en;
     },
     getButtonText() {
-      return this.language === 'tr' ? 'Detayları İncele' : 'View Details';
+      return this.language === 'tr' ? this.sectionContent.button.tr : this.sectionContent.button.en;
     },
     scrollToSection(sectionId) {
       const element = document.getElementById(sectionId);
       if (element) {
-        const offsetTop = element.offsetTop - 80; // Adjust for header height
+        const offsetTop = element.offsetTop - 80;
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
@@ -195,336 +304,244 @@ export default {
 </script>
 
 <style scoped>
-.services {
+.consultancy-section {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 50%, #ffffff 100%);
-  transition: all 0.3s ease;
+  background: var(--light-bg);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
 }
 
-.services::before {
+.service-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25,25 L35,35' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M45,25 L55,35' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M65,25 L75,35' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M25,45 L35,55' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M45,45 L55,55' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M65,45 L75,55' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M25,65 L35,75' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M45,65 L55,75' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Cpath d='M65,65 L75,75' stroke='%233498db' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='25' cy='25' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='45' cy='25' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='65' cy='25' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='25' cy='45' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='45' cy='45' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='65' cy='45' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='25' cy='65' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='45' cy='65' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3Ccircle cx='65' cy='65' r='2' fill='%233498db' fill-opacity='0.1'/%3E%3C/svg%3E");
-  opacity: 0.3;
-  pointer-events: none;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+  transform: scaleX(0);
+  transition: transform 0.3s;
 }
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-header h2 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-  transition: color 0.3s;
-}
-
-.section-header p {
-  font-size: 1.2rem;
-  color: #7f8c8d;
-  max-width: 700px;
-  margin: 0 auto;
-  transition: color 0.3s;
-}
-
-.service-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.service-card {
-  background: white;
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.service-card:hover::before {
+  transform: scaleX(1);
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
-.service-icon {
-  font-size: 2.5rem;
-  color: #3498db;
-  margin-bottom: 1.2rem;
-}
-
-.service-title {
-  font-size: 1.3rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  transition: color 0.3s;
-}
-
-.service-description {
-  color: #7f8c8d;
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
-  font-size: 0.95rem;
-  transition: color 0.3s;
-}
-
-.service-subitems {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 1.2rem;
-  width: 100%;
-  text-align: left;
-}
-
-.service-subitems li {
+.service-card.featured {
+  border: 2px solid var(--secondary-color);
   position: relative;
-  padding-left: 1.3rem;
-  margin-bottom: 0.6rem;
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  transition: color 0.3s;
 }
 
-.service-subitems li:before {
+.service-card.featured::after {
+  content: 'YENİ';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--warning-color), #f97316);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.service-card .icon {
+  font-size: 1.8rem;
+  margin-right: 12px;
+  display: inline-block;
+  animation: rotate-icon 3s ease-in-out infinite;
+}
+
+@keyframes rotate-icon {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.service-card p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  list-style: none;
+  margin: 1rem 0 1.5rem;
+}
+
+.service-features li {
+  padding: 0.5rem 0;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.service-features li:before {
   content: "✓";
-  color: #3498db;
   position: absolute;
   left: 0;
+  color: var(--success-color);
   font-weight: bold;
 }
 
-.btn-secondary {
-  background-color: transparent;
-  color: #1976d2;
-  border: 2px solid #1976d2;
-  padding: 0.7rem 1.5rem;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s;
-  margin-top: auto;
-  font-size: 0.95rem;
-  letter-spacing: 0.1px;
-}
-
-.btn-secondary:hover {
-  background-color: #1976d2;
+.card-link {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
   color: white;
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.4);
-  border-color: #1976d2;
-}
-
-/* Dark mode styles - using global CSS variables */
-body.dark .services {
-  background: linear-gradient(135deg, var(--dark-bg-primary) 0%, var(--dark-bg-surface) 50%, var(--dark-bg-primary) 100%);
-}
-
-body.dark .services::before {
-  opacity: 0.2;
-}
-
-body.dark .services .section-header h2 {
-  color: var(--dark-text-primary);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-body.dark .services .section-header p {
-  color: var(--dark-text-secondary);
-  font-weight: 500;
-}
-
-body.dark .services .service-card {
-  background: var(--dark-bg-surface);
-  border: 1px solid var(--dark-border);
-  box-shadow: 0 10px 30px var(--dark-shadow);
-}
-
-body.dark .services .service-card:hover {
-  background: #242424;
-  border-color: var(--dark-primary);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-  transform: translateY(-5px);
-}
-
-body.dark .services .service-title {
-  color: var(--dark-primary);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+  display: inline-block;
+  align-self: flex-start;
   font-weight: 600;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
 }
 
-body.dark .services .service-description,
-body.dark .services .service-subitems li {
-  color: var(--dark-secondary);
+.card-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
-body.dark .services .service-icon {
-  color: var(--dark-secondary);
+/* Dark mode styles */
+body.dark .consultancy-section {
+  background: var(--dark-bg);
 }
 
-body.dark .services .service-subitems li:before {
-  color: var(--dark-secondary);
+body.dark .section-title {
+  background: linear-gradient(135deg, var(--dark-primary), var(--dark-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-body.dark .services .btn-secondary {
+body.dark .section-subtitle {
+  color: var(--dark-text-secondary);
+}
+
+body.dark .service-card {
+  background: var(--dark-bg-surface);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+body.dark .service-card:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+body.dark .service-card h3 {
   color: var(--dark-primary);
-  border-color: var(--dark-primary);
-  background: rgba(224, 224, 224, 0.1);
 }
 
-body.dark .services .btn-secondary:hover {
-  background-color: var(--dark-primary);
-  color: var(--dark-bg-primary);
-  box-shadow: 0 8px 20px rgba(224, 224, 224, 0.3);
-  transform: translateY(-2px);
+body.dark .service-card p,
+body.dark .service-features li {
+  color: var(--dark-text-secondary);
+}
+
+body.dark .service-card.featured {
+  border-color: var(--dark-accent);
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
-  .service-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
   }
   
   .service-card {
-    padding: 1.2rem;
+    padding: 2rem;
   }
   
-  .service-icon {
+  .section-title {
     font-size: 2.2rem;
   }
   
-  .service-title {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .services {
-    padding: 4rem 0;
-  }
-  
-  .section-header {
+  .section-subtitle {
+    font-size: 1.1rem;
     margin-bottom: 3rem;
   }
-  
-  .section-header h2 {
-    font-size: 2.2rem;
-  }
-  
-  .section-header p {
-    font-size: 1.15rem;
-  }
 }
 
-@media (max-width: 768px) {
-  .service-cards {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 500px;
-    margin: 0 auto;
+@media (max-width: 480px) {
+  .consultancy-section {
+    padding: 3rem 0;
   }
   
   .service-card {
     padding: 1.5rem;
   }
   
-  .services {
-    padding: 3rem 0;
-  }
-  
-  .container {
-    padding: 0 1.5rem;
-  }
-  
-  .section-header h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .section-header p {
-    font-size: 1.1rem;
-    max-width: 90%;
-  }
-  
-  .service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .service-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .service-description {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-  
-  .service-subitems li {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .btn-secondary {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .services {
-    padding: 2.5rem 0;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .section-header h2 {
-    font-size: 1.8rem;
-  }
-  
-  .section-header p {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-  
-  .service-card {
-    padding: 1.2rem;
-  }
-  
-  .service-icon {
+  .section-title {
     font-size: 2rem;
   }
   
-  .service-title {
-    font-size: 1.1rem;
+  .service-card h3 {
+    font-size: 1.2rem;
   }
   
-  .service-description {
-    font-size: 0.9rem;
-  }
-  
-  .service-subitems li {
-    font-size: 0.8rem;
+  .service-card .icon {
+    font-size: 1.5rem;
   }
 }
 </style>
