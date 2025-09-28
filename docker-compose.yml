@@ -7,4 +7,31 @@ services:
     environment:
       - NODE_ENV=production
       - BASE_URL=https://sciwritenexus.com
-    restart: always
+    networks:
+      - traefik-public
+    deploy:
+      placement:
+        constraints:
+          - node.labels.voslo == true
+      labels:
+        - "traefik.enable=true"
+        # HTTPS router
+        - "traefik.http.routers.sciwritenexus-secure.rule=Host(`sciwritenexus.com`)"
+        - "traefik.http.routers.sciwritenexus-secure.entrypoints=websecure"
+        - "traefik.http.routers.sciwritenexus-secure.tls.certresolver=myresolver"
+        # HTTP'den HTTPS'ye yönlendirme router'ı
+        - "traefik.http.routers.sciwritenexus-insecure.rule=Host(`sciwritenexus.com`)"
+        - "traefik.http.routers.sciwritenexus-insecure.entrypoints=web"
+        - "traefik.http.routers.sciwritenexus-insecure.middlewares=redirect-to-https"
+        # HTTPS yönlendirme middleware'ı
+        - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+        - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+        # Service tanımı
+        - "traefik.http.services.sciwritenexus.loadbalancer.server.port=3000"
+      replicas: 1
+      restart_policy:
+        condition: any
+
+networks:
+  traefik-public:
+    external: true
